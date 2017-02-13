@@ -1,0 +1,27 @@
+    % find distance from p to line segment [ab]
+    function d = PerpendicularDistance(p,a,b)
+      
+      % first we scale by the time and then compute Euclidean distance
+      a = a(2:end).*a(1);
+      b = b(2:end).*b(1);
+      p = p(2:end).*p(1);
+      
+      % normalize the vector u = (b-a) to have unit length
+      u = b-a;
+      u = u./norm(u);
+      
+      % vector v = (p-a) translates the problem to pass through the origin
+      v = p-a;
+      
+      % Subtract the component of that vector that lies
+      % along the line ab. Then the dot product gives the
+      % projection of the vector v, onto the vector u.
+      % Multiply by u to get the component of v in
+      % the same direction as [ab].
+      % Subtract this component from v and compute
+      % the length of the result, which is perpendicular [ab].
+      d = norm(v-u*dot(v,u));
+      
+      d(d<1e-10) = 0;
+      
+    end

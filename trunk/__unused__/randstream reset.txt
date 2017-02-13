@@ -1,0 +1,1 @@
+RandStream.getGlobalStream.reset()

@@ -1,0 +1,82 @@
+{% extends "demo/skeleton.html" %}
+{% load staticfiles %}
+
+
+{% block header_javascript %}
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+            division = 10;
+            makeConfidenceVisual(division);
+	    
+	    
+        });
+        
+
+        function makeConfidenceVisual(division){
+            $("#conf_visual_div").html("");
+            var tot_width = $("#conf_visual_div").width()
+            var div_width = tot_width/division;
+
+
+            var low = parseFloat($.trim($("#threshold").html()));
+            var high = 3.0;
+
+            var step = (high - low)/(division-1);
+
+            prev_confidence = low - step; //to account for the low color in for loop
+            for (var i = 0; i<division; i++){
+                confidence = prev_confidence + step;
+                var g_val = 255*Math.max(Math.min((confidence+1)/4.0,1.0),0.0);
+                var div_html = "<div class='conf_visual_in' style='background-color:"+"rgb(0,"+Math.round(g_val)+",0); width:"+Math.round(div_width) + "px;'></div>";
+                $("#conf_visual_div").append(div_html);
+                prev_confidence = confidence;
+            }
+        }
+        
+    </script>
+
+{% endblock %}
+
+
+{% block content %}
+{% if images_dict %}        
+    <div class="centered_content">
+        <div id = "conf_visual">
+            <span id="conf_label"> Color coding of bounding boxes in confidence range ({{threshold}}, 3.0) </span>
+            <div id="conf_visual_div"> 
+                <div class="conf_visual_in" style="background-color:red"> </div>
+                <div class="conf_visual_in" style="background-color:blue"></div>
+                <div class="conf_visual_in" style="background-color:black"></div>
+            </div>
+        </div>
+	<div id="coreset_results_info">
+	    {% if coreset %}
+		{% if not done %}
+		    <p> Still retrieving... </p>
+		{% endif %}
+	    {% endif %}
+	</div>
+	<div id="image_detections">
+	    {% for class_name, image_descriptions in images_dict.items %}
+		{% if image_descriptions %}
+		    <h1> {{class_name}} </h1> </hr>
+		    {% for image in image_descriptions %}
+			<div class="thumbnail_cover">
+				  <img src="{% static image.0%}" width="200px" class="idiary_thumbnail"></img> 
+			<div id="thumb_descr"> Frame: {{image.1}}, Max score: <span id = "conf_color"  style="color: white; background-color:{{image.3}}">{{image.2}}</span> </div><div> Imp: {{image.5}} Video file: {{image.4}}</div>
+			</div>
+		    {% endfor %}
+		{% else %}
+		    <!--<p>No matching images.</p>-->
+		{% endif %}
+	
+	    {% endfor %}
+	</div>
+{% else %}
+	<p> No such object found. </p>
+{% endif %}
+<div id="threshold" style="display:none;"> {{threshold}} </div>
+
+</div>
+{% endblock %}

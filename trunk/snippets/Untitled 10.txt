@@ -1,0 +1,13 @@
+            
+% %             kxi = Kx_candidate_idx(i);
+% %             axi = (abs_frame_idx==kxi);
+% %             
+% %             % I = Kx_buffer{kxi-Kx_buffer_offset};
+% %             % hsv = rgb2hsv(I);
+% %             % V = hsv(:,:,3);
+% %             
+% %             %F{i} = image_desc_buffer{kxi-Kx_buffer_offset}.desc;
+% %             F{i} = image_desc_buffer{axi}.desc;
+% %             
+% %             %Is{i} = rgbhist_fast(I,10,2);
+% %             %Is{i} = imhist(F);

@@ -1,0 +1,27 @@
+% % % store the key frames from the image buffer
+% % keyframes = cell(1,num_keyframes);
+% % for i = 1:num_keyframes
+% %     kxi = sel_Kx_idx(i);
+% %     %keyframes{i} = Kx_buffer{kxi-Kx_buffer_offset};
+% %     axi = (abs_frame_idx==kxi);
+% %     keyframes{i} = Kx_buffer{axi};
+% % end
+% % 
+% % % update the image descriptors
+% % new_image_desc = cell(1,num_keyframes);
+% % for i = 1:num_keyframes
+% %     kxi = sel_Kx_idx(i);
+% %     %new_image_desc{i} = image_desc_buffer{kxi-Kx_buffer_offset};
+% %     axi = (abs_frame_idx==kxi);
+% %     new_image_desc{i} = image_desc_buffer{axi};
+% % end
+
+% % vote_hist = zeros(1,num_candidate_frames);
+% % for i = 1:num_candidate_frames
+% %     vote_hist(i) = find(abs(sel_Kx_idx-Kx_candidate_idx(i))==min(abs(sel_Kx_idx-Kx_candidate_idx(i))),1,'first');
+% % end
+% % for i = 1:num_keyframes
+% %     new_Kx_metrics.votes(i) = sum(Kx_seg_votes(vote_hist==i));
+% %     new_Kx_metrics.tfrac(i) = sum(Kx_seg_tfrac(vote_hist==i));
+% % end
+

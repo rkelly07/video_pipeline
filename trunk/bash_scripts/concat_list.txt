@@ -1,0 +1,8 @@
+file 'GOPR0008.MP4'
+file 'GP010008.MP4'
+file 'GP020008.MP4'
+file 'GP030008.MP4'
+file 'GP040008.MP4'
+file 'GP050008.MP4'
+file 'GP060008.MP4'
+file 'GP070008.MP4'

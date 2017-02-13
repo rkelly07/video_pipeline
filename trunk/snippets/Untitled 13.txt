@@ -1,0 +1,4 @@
+% % pre-skip frames to get to the start frame 
+% for i = 1:params.StartFrame-1
+%     mex_video_processing('skipframe',h);
+% end

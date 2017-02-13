@@ -1,0 +1,4 @@
+  % get next block
+%   x1 = (r-1)*params.BlockSize+1;
+%   x2 = r*params.BlockSize;
+%   B = X(x1:x2,:);

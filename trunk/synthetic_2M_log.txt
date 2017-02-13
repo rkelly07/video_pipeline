@@ -1,0 +1,1487 @@
+[?1h=
+                            < M A T L A B (R) >
+                  Copyright 1984-2014 The MathWorks, Inc.
+                   R2014b (8.4.0.150421) 64-bit (glnxa64)
+                             September 15, 2014
+
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+>> startup_new_server
+Adding project paths:
+Adding javaclasspath for database
+Done!
+>> cd rtvproc/
+>> proceprocess_video_file_wrapper({vidpath})h}) }) }) }) }) }) }) '})d})u})m})m})y})'})
+--------------------------------------------------------------------------------
+
+video_filelist = 
+
+    '/demo/test.mp4'
+
+--------------------------------------------------------------------------------
+
+persistent_data = 
+
+    VQ: [5000x66 single]
+    VW: [5000x1 single]
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+options = 
+
+              AuxFilepaths: [1x1 struct]
+                 DB_Config: [1x1 struct]
+        SaveDetectionsToDB: 0
+                      Plot: 1
+                  FigureID: 100
+             DefaultFigPos: [80 280 1480 800]
+                PlotFrames: 1
+                   PlotBOW: 1
+             PlotKeyframes: 1
+                  PlotTree: 1
+       PlotKeyframeMetrics: 1
+               SaveResults: 1
+           SaveCoresetTree: 1
+    SaveTextDetectionsToDB: 0
+                   Verbose: 1
+
+................................................................................
+--------------------------------------------------------------------------------
+
+video_filelist = 
+
+    'demo_video.avi'
+
+--------------------------------------------------------------------------------
+
+persistent_data = 
+
+    VQ: [10000x66 single]
+    VW: [10000x1 single]
+
+
+params = 
+
+                   Source: 'Synthetic'
+                 WebcamNo: 0
+                MaxFrames: Inf
+               StartFrame: 1
+                 EndFrame: []
+               SkipFrames: 0
+              RescaleSize: []
+           DescriptorType: 'SURF'
+            SemanticModel: 'RCNN'
+        DisplayBufferSize: 100
+        DisplayNumBestBOW: 50
+          LinearTransform: []
+         MedianFilterSize: 10
+                IIR_Alpha: 0.0500
+               IIR_Length: 1
+        UpdateDescriptors: 1
+          CoresetLeafSize: 200
+         CoresetAlgorithm: [1x1 KSegmentCoresetAlg]
+          CoresetSaveTree: 1
+       ComputeCoresetTree: 1
+            KxMetricEnums: [1x1 struct]
+          KxMetricWeights: [0.0500 0.0500 0.0500]
+    KxBrightnessThreshold: 0.1000
+    KxSimilarityThreshold: 0
+       SyntheticNumFrames: 2500000
+       SyntheticNumImages: 5
+          SyntheticHeight: 300
+           SyntheticWidth: 400
+             SyntheticFPS: 30
+               SyntheticP: 0.0250
+      SyntheticNumObjects: 4
+
+--------------------------------------------------------------------------------
+
+options = 
+
+                 AuxFilepaths: [1x1 struct]
+                    DB_Config: [1x1 struct]
+           SaveDetectionsToDB: 0
+                         Plot: 0
+                     FigureID: 100
+                DefaultFigPos: [80 280 1480 800]
+                   PlotFrames: 1
+                      PlotBOW: 1
+                PlotKeyframes: 1
+                     PlotTree: 1
+          PlotKeyframeMetrics: 1
+                  SaveResults: 1
+              SaveCoresetTree: 1
+       SaveTextDetectionsToDB: 0
+                      Verbose: 1
+    SaveCoresetDetectionsToDB: 0
+
+................................................................................
+
+video_filelist = 
+
+    'dummy'
+
+================================================================================
+
+video_info = 
+
+         Filename: 'synthetic_video_2500000_29-08-2015_18:03:59.avi'
+         Duration: NaN
+        NumFrames: 2500000
+            Width: 400
+           Height: 300
+              FPS: 30
+    SyntheticInfo: [1x1 struct]
+
+--------------------------------------------------------------------------------
+Unpacking persistent data: VQ
+Unpacking persistent data: VW
+Initializing variables ...
+Initializing video stream ...
+Streaming frames [1--2500000] ...
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 1--200
+Node 1 :
+Analyzing candidate keyframes: 1/122/123/124/125/126/127/128/129/1210/1211/1212/12
+Keyframes = [1 3 4 5 7 9 10 11 12]
+Processed 200/2500000 frames: 0.12 minutes elapsed
+0.12 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 201--400
+Node 2 :
+Analyzing candidate keyframes: 1/82/83/84/85/86/87/88/8
+Keyframes = [1 2 3 4 5 6 7 8]
+Node 3 (1 2):
+Analyzing candidate keyframes: Keyframes = [1 2 3 5 6 7 11 15 17]
+Clearing tree cache: ..
+Processed 400/2500000 frames: 0.20 minutes elapsed
+0.20 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 401--600
+Node 4 :
+Analyzing candidate keyframes: 1/92/93/94/95/96/97/98/99/9
+Keyframes = [1 2 3 4 5 6 7 8 9]
+Clearing tree cache: 
+Processed 600/2500000 frames: 0.27 minutes elapsed
+0.27 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 601--800
+Node 5 :
+Analyzing candidate keyframes: 1/102/103/104/105/106/107/108/109/1010/10
+Keyframes = [1 2 3 4 5 7 8 9 10]
+Node 6 (4 5):
+Analyzing candidate keyframes: Keyframes = [2 4 5 8 9 10 11 13 15]
+Node 7 (3 6):
+Analyzing candidate keyframes: Keyframes = [1 3 4 5 6 7 12 14 15]
+Clearing tree cache: ....
+Processed 800/2500000 frames: 0.36 minutes elapsed
+0.36 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 801--1000
+Node 8 :
+Analyzing candidate keyframes: 1/42/43/44/4
+Keyframes = [1 2 3 4]
+Clearing tree cache: 
+Processed 1000/2500000 frames: 0.41 minutes elapsed
+0.41 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 1001--1200
+Node 9 :
+Analyzing candidate keyframes: 1/42/43/44/4
+Keyframes = [1 2 3 4]
+Node 10 (8 9):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 5 6 7 8]
+Clearing tree cache: ..
+Processed 1200/2500000 frames: 0.47 minutes elapsed
+0.47 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 1201--1400
+Node 11 :
+Analyzing candidate keyframes: 1/62/63/64/65/66/6
+Keyframes = [1 2 3 4 5 6]
+Clearing tree cache: 
+Processed 1400/2500000 frames: 0.53 minutes elapsed
+0.53 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 1401--1600
+Node 12 :
+Analyzing candidate keyframes: 1/102/103/104/105/106/107/108/109/1010/10
+Keyframes = [1 3 4 5 6 7 8 9 10]
+Node 13 (11 12):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 5 8 10 11 15]
+Node 14 (10 13):
+Analyzing candidate keyframes: Keyframes = [2 4 5 7 9 10 11 13 17]
+Node 15 (7 14):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 6 7 8 9 13]
+Clearing tree cache: ......
+Processed 1600/2500000 frames: 0.65 minutes elapsed
+0.65 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 1601--1800
+Node 16 :
+Analyzing candidate keyframes: 1/102/103/104/105/106/107/108/109/1010/10
+Keyframes = [1 2 4 5 6 7 8 9 10]
+Clearing tree cache: 
+Processed 1800/2500000 frames: 0.71 minutes elapsed
+0.71 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 1801--2000
+Node 17 :
+Analyzing candidate keyframes: 1/112/113/114/115/116/117/118/119/1110/1111/11
+Keyframes = [2 3 4 6 7 8 9 10 11]
+Node 18 (16 17):
+Analyzing candidate keyframes: Keyframes = [1 2 4 6 10 11 13 15 16]
+Clearing tree cache: ..
+Processed 2000/2500000 frames: 0.78 minutes elapsed
+0.78 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 2001--2200
+Node 19 :
+Analyzing candidate keyframes: 1/92/93/94/95/96/97/98/99/9
+Keyframes = [1 2 3 4 5 6 7 8 9]
+Clearing tree cache: 
+Processed 2200/2500000 frames: 0.84 minutes elapsed
+0.84 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 2201--2400
+Node 20 :
+Analyzing candidate keyframes: 1/152/153/154/155/156/157/158/159/1510/1511/1512/1513/1514/1515/15
+Keyframes = [1 2 4 6 8 11 12 14 15]
+Node 21 (19 20):
+Analyzing candidate keyframes: Keyframes = [1 2 4 5 6 11 12 14 17]
+Node 22 (18 21):
+Analyzing candidate keyframes: Keyframes = [2 4 5 7 8 11 13 15 16]
+Clearing tree cache: ....
+Processed 2400/2500000 frames: 0.95 minutes elapsed
+0.95 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 2401--2600
+Node 23 :
+Analyzing candidate keyframes: 1/72/73/74/75/76/77/7
+Keyframes = [1 2 3 4 5 6 7]
+Clearing tree cache: 
+Processed 2600/2500000 frames: 1.03 minutes elapsed
+1.03 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 2601--2800
+Node 24 :
+Analyzing candidate keyframes: 1/42/43/44/4
+Keyframes = [1 2 3 4]
+Node 25 (23 24):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 5 6 7 8 11]
+Clearing tree cache: ..
+Processed 2800/2500000 frames: 1.09 minutes elapsed
+1.09 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 2801--3000
+Node 26 :
+Analyzing candidate keyframes: 1/132/133/134/135/136/137/138/139/1310/1311/1312/1313/13
+Keyframes = [1 2 5 6 7 8 9 12 13]
+Clearing tree cache: 
+Processed 3000/2500000 frames: 1.16 minutes elapsed
+1.16 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 3001--3200
+Node 27 :
+Analyzing candidate keyframes: 1/22/2
+Keyframes = [1 2]
+Node 28 (26 27):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 5 6 7 9 10]
+Node 29 (25 28):
+Analyzing candidate keyframes: Keyframes = [3 5 6 9 10 11 12 14 15]
+Node 30 (22 29):
+Analyzing candidate keyframes: Keyframes = [1 2 3 7 8 9 11 15 18]
+Node 31 (15 30):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 5 6 7 8 12]
+Clearing tree cache: ........
+Processed 3200/2500000 frames: 1.29 minutes elapsed
+1.29 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 3201--3400
+Node 32 :
+Analyzing candidate keyframes: 1/112/113/114/115/116/117/118/119/1110/1111/11
+Keyframes = [2 4 5 6 7 8 9 10 11]
+Clearing tree cache: 
+Processed 3400/2500000 frames: 1.35 minutes elapsed
+1.35 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 3401--3600
+Node 33 :
+Analyzing candidate keyframes: 1/112/113/114/115/116/117/118/119/1110/1111/11
+Keyframes = [3 4 5 6 7 8 9 10 11]
+Node 34 (32 33):
+Analyzing candidate keyframes: Keyframes = [1 2 3 5 8 13 14 15 18]
+Clearing tree cache: ..
+Processed 3600/2500000 frames: 1.43 minutes elapsed
+1.43 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 3601--3800
+Node 35 :
+Analyzing candidate keyframes: 1/112/113/114/115/116/117/118/119/1110/1111/11
+Keyframes = [1 3 4 5 6 7 8 9 10]
+Clearing tree cache: 
+Processed 3800/2500000 frames: 1.49 minutes elapsed
+1.49 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 3801--4000
+Node 36 :
+Analyzing candidate keyframes: 1/52/53/54/55/5
+Keyframes = [1 2 3 4 5]
+Node 37 (35 36):
+Analyzing candidate keyframes: Keyframes = [1 3 4 5 6 7 9 12 14]
+Node 38 (34 37):
+Analyzing candidate keyframes: Keyframes = [1 3 4 5 9 10 11 14 18]
+Clearing tree cache: ....
+Processed 4000/2500000 frames: 1.57 minutes elapsed
+1.57 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 4001--4200
+Node 39 :
+Analyzing candidate keyframes: 1/152/153/154/155/156/157/158/159/1510/1511/1512/1513/1514/1515/15
+Keyframes = [1 3 6 7 8 9 11 12 14]
+Clearing tree cache: 
+Processed 4200/2500000 frames: 1.63 minutes elapsed
+1.63 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 4201--4400
+Node 40 :
+Analyzing candidate keyframes: 1/92/93/94/95/96/97/98/99/9
+Keyframes = [1 2 3 4 5 6 7 8 9]
+Node 41 (39 40):
+Analyzing candidate keyframes: Keyframes = [1 2 3 5 7 12 15 16 18]
+Clearing tree cache: ..
+Processed 4400/2500000 frames: 1.70 minutes elapsed
+1.70 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 4401--4600
+Node 42 :
+Analyzing candidate keyframes: 1/52/53/54/55/5
+Keyframes = [1 2 3 4 5]
+Clearing tree cache: 
+Processed 4600/2500000 frames: 1.76 minutes elapsed
+1.76 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 4601--4800
+Node 43 :
+Analyzing candidate keyframes: 1/142/143/144/145/146/147/148/149/1410/1411/1412/1413/1414/14
+Keyframes = [1 3 4 5 7 9 10 12 14]
+Node 44 (42 43):
+Analyzing candidate keyframes: Keyframes = [1 4 5 6 8 9 12 13 14]
+Node 45 (41 44):
+Analyzing candidate keyframes: Keyframes = [1 4 5 6 7 8 9 11 14]
+Node 46 (38 45):
+Analyzing candidate keyframes: Keyframes = [1 3 4 5 6 7 8 9 10]
+Clearing tree cache: ......
+Processed 4800/2500000 frames: 1.89 minutes elapsed
+1.89 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 4801--5000
+Node 47 :
+Analyzing candidate keyframes: 1/82/83/84/85/86/87/88/8
+Keyframes = [1 2 3 4 5 6 7 8]
+Clearing tree cache: 
+Processed 5000/2500000 frames: 1.95 minutes elapsed
+1.95 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 5001--5200
+Node 48 :
+Analyzing candidate keyframes: 1/122/123/124/125/126/127/128/129/1210/1211/1212/12
+Keyframes = [1 3 4 6 7 8 9 10 12]
+Node 49 (47 48):
+Analyzing candidate keyframes: Keyframes = [1 2 3 6 7 8 9 11 13]
+Clearing tree cache: ..
+Processed 5200/2500000 frames: 2.03 minutes elapsed
+2.03 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 5201--5400
+Node 50 :
+Analyzing candidate keyframes: 1/72/73/74/75/76/77/7
+Keyframes = [1 2 3 4 5 6 7]
+Clearing tree cache: 
+Processed 5400/2500000 frames: 2.10 minutes elapsed
+2.10 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 5401--5600
+Node 51 :
+Analyzing candidate keyframes: 1/192/193/194/195/196/197/198/199/1910/1911/1912/1913/1914/1915/1916/1917/1918/1919/19
+Keyframes = [3 7 8 10 12 14 16 18 19]
+Node 52 (50 51):
+Analyzing candidate keyframes: Keyframes = [1 2 5 6 8 9 11 14 15]
+Node 53 (49 52):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 5 9 11 13 18]
+Clearing tree cache: ....
+Processed 5600/2500000 frames: 2.21 minutes elapsed
+2.21 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 5601--5800
+Node 54 :
+Analyzing candidate keyframes: 1/112/113/114/115/116/117/118/119/1110/1111/11
+Keyframes = [1 2 4 6 7 8 9 10 11]
+Clearing tree cache: 
+Processed 5800/2500000 frames: 2.28 minutes elapsed
+2.28 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 5801--6000
+Node 55 :
+Analyzing candidate keyframes: 1/72/73/74/75/76/77/7
+Keyframes = [1 2 3 4 5 6 7]
+Node 56 (54 55):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 5 8 12 13 16]
+Clearing tree cache: ..
+Processed 6000/2500000 frames: 2.36 minutes elapsed
+2.36 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 6001--6200
+Node 57 :
+Analyzing candidate keyframes: 1/162/163/164/165/166/167/168/169/1610/1611/1612/1613/1614/1615/1616/16
+Keyframes = [1 2 6 7 8 9 10 11 12]
+Clearing tree cache: 
+Processed 6200/2500000 frames: 2.43 minutes elapsed
+2.43 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 6201--6400
+Node 58 :
+Analyzing candidate keyframes: 1/72/73/74/75/76/77/7
+Keyframes = [1 2 3 4 5 6 7]
+Node 59 (57 58):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 5 6 7 8 9]
+Node 60 (56 59):
+Analyzing candidate keyframes: Keyframes = [2 3 5 8 9 10 11 17 18]
+Node 61 (53 60):
+Analyzing candidate keyframes: Keyframes = [2 5 6 7 8 9 10 11 12]
+Node 62 (46 61):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 5 6 7 8 9]
+Node 63 (31 62):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 5 6 7 8 9]
+Clearing tree cache: ..........
+Processed 6400/2500000 frames: 2.65 minutes elapsed
+2.65 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 6401--6600
+Node 64 :
+Analyzing candidate keyframes: 1/32/33/3
+Keyframes = [1 2 3]
+Clearing tree cache: 
+Processed 6600/2500000 frames: 2.72 minutes elapsed
+2.72 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 6601--6800
+Node 65 :
+Analyzing candidate keyframes: 1/82/83/84/85/86/87/88/8
+Keyframes = [1 2 3 4 5 6 7 8]
+Node 66 (64 65):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 5 6 7 8 10]
+Clearing tree cache: ..
+Processed 6800/2500000 frames: 2.80 minutes elapsed
+2.80 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 6801--7000
+Node 67 :
+Analyzing candidate keyframes: 1/112/113/114/115/116/117/118/119/1110/1111/11
+Keyframes = [2 4 5 6 7 8 9 10 11]
+Clearing tree cache: 
+Processed 7000/2500000 frames: 2.87 minutes elapsed
+2.87 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 7001--7200
+Node 68 :
+Analyzing candidate keyframes: 1/102/103/104/105/106/107/108/109/1010/10
+Keyframes = [1 3 4 5 6 7 8 9 10]
+Node 69 (67 68):
+Analyzing candidate keyframes: Keyframes = [1 2 3 7 8 9 10 13 15]
+Node 70 (66 69):
+Analyzing candidate keyframes: Keyframes = [2 5 7 9 10 11 13 14 17]
+Clearing tree cache: ....
+Processed 7200/2500000 frames: 2.97 minutes elapsed
+2.97 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 7201--7400
+Node 71 :
+Analyzing candidate keyframes: 1/82/83/84/85/86/87/88/8
+Keyframes = [1 2 3 4 5 6 7 8]
+Clearing tree cache: 
+Processed 7400/2500000 frames: 3.03 minutes elapsed
+3.03 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 7401--7600
+Node 72 :
+Analyzing candidate keyframes: 1/42/43/44/4
+Keyframes = [1 2 3 4]
+Node 73 (71 72):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 5 6 8 9 11]
+Clearing tree cache: ..
+Processed 7600/2500000 frames: 3.10 minutes elapsed
+3.10 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 7601--7800
+Node 74 :
+Analyzing candidate keyframes: 1/92/93/94/95/96/97/98/99/9
+Keyframes = [1 2 3 4 5 6 7 8 9]
+Clearing tree cache: 
+Processed 7800/2500000 frames: 3.16 minutes elapsed
+3.16 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 7801--8000
+Node 75 :
+Analyzing candidate keyframes: 1/122/123/124/125/126/127/128/129/1210/1211/1212/12
+Keyframes = [1 2 3 4 5 7 8 10 11]
+Node 76 (74 75):
+Analyzing candidate keyframes: Keyframes = [2 4 5 6 9 10 12 16 18]
+Node 77 (73 76):
+Analyzing candidate keyframes: Keyframes = [3 6 10 11 13 14 15 16 17]
+Node 78 (70 77):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 6 8 9 10 14]
+Clearing tree cache: ......
+Processed 8000/2500000 frames: 3.28 minutes elapsed
+3.28 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 8001--8200
+Node 79 :
+Analyzing candidate keyframes: 1/82/83/84/85/86/87/88/8
+Keyframes = [1 2 3 4 5 6 7 8]
+Clearing tree cache: 
+Processed 8200/2500000 frames: 3.35 minutes elapsed
+3.35 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 8201--8400
+Node 80 :
+Analyzing candidate keyframes: 1/102/103/104/105/106/107/108/109/1010/10
+Keyframes = [1 2 3 5 6 7 8 9 10]
+Node 81 (79 80):
+Analyzing candidate keyframes: Keyframes = [2 4 5 6 7 9 10 13 14]
+Clearing tree cache: ..
+Processed 8400/2500000 frames: 3.43 minutes elapsed
+3.43 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 8401--8600
+Node 82 :
+Analyzing candidate keyframes: 1/82/83/84/85/86/87/88/8
+Keyframes = [1 2 3 4 5 6 7 8]
+Clearing tree cache: 
+Processed 8600/2500000 frames: 3.50 minutes elapsed
+3.50 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 8601--8800
+Node 83 :
+Analyzing candidate keyframes: 1/102/103/104/105/106/107/108/109/1010/10
+Keyframes = [2 3 4 5 6 7 8 9 10]
+Node 84 (82 83):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 6 10 12 14 16]
+Node 85 (81 84):
+Analyzing candidate keyframes: Keyframes = [1 2 5 9 10 12 13 15 16]
+Clearing tree cache: ....
+Processed 8800/2500000 frames: 3.59 minutes elapsed
+3.59 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 8801--9000
+Node 86 :
+Analyzing candidate keyframes: 1/22/2
+Keyframes = [1 2]
+Clearing tree cache: 
+Processed 9000/2500000 frames: 3.67 minutes elapsed
+3.67 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 9001--9200
+Node 87 :
+Analyzing candidate keyframes: 1/72/73/74/75/76/77/7
+Keyframes = [1 2 3 4 5 6 7]
+Node 88 (86 87):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 5 6 7 8 9]
+Clearing tree cache: ..
+Processed 9200/2500000 frames: 3.74 minutes elapsed
+3.74 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 9201--9400
+Node 89 :
+Analyzing candidate keyframes: 1/52/53/54/55/5
+Keyframes = [1 2 3 4 5]
+Clearing tree cache: 
+Processed 9400/2500000 frames: 3.80 minutes elapsed
+3.80 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 9401--9600
+Node 90 :
+Analyzing candidate keyframes: 1/112/113/114/115/116/117/118/119/1110/1111/11
+Keyframes = [2 3 4 5 6 7 8 9 11]
+Node 91 (89 90):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 6 8 10 12 13]
+Node 92 (88 91):
+Analyzing candidate keyframes: Keyframes = [4 6 8 11 12 13 14 15 17]
+Node 93 (85 92):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 5 6 7 14 17]
+Node 94 (78 93):
+Analyzing candidate keyframes: Keyframes = [2 5 6 7 8 9 10 12 16]
+Clearing tree cache: ........
+Processed 9600/2500000 frames: 3.95 minutes elapsed
+3.95 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 9601--9800
+Node 95 :
+Analyzing candidate keyframes: 1/132/133/134/135/136/137/138/139/1310/1311/1312/1313/13
+Keyframes = [1 2 3 5 7 8 10 12 13]
+Clearing tree cache: 
+Processed 9800/2500000 frames: 4.01 minutes elapsed
+4.01 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 9801--10000
+Node 96 :
+Analyzing candidate keyframes: 1/72/73/74/75/76/77/7
+Keyframes = [1 2 3 4 5 6 7]
+Node 97 (95 96):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 5 6 7 8 16]
+Clearing tree cache: ..
+Processed 10000/2500000 frames: 4.08 minutes elapsed
+4.08 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 10001--10200
+Node 98 :
+Analyzing candidate keyframes: 1/62/63/64/65/66/6
+Keyframes = [1 2 3 4 5 6]
+Clearing tree cache: 
+Processed 10200/2500000 frames: 4.15 minutes elapsed
+4.15 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 10201--10400
+Node 99 :
+Analyzing candidate keyframes: 1/62/63/64/65/66/6
+Keyframes = [1 2 3 4 5 6]
+Node 100 (98 99):
+Analyzing candidate keyframes: Keyframes = [1 2 4 5 6 7 8 10 12]
+Node 101 (97 100):
+Analyzing candidate keyframes: Keyframes = [1 3 5 8 9 10 14 15 17]
+Clearing tree cache: ....
+Processed 10400/2500000 frames: 4.23 minutes elapsed
+4.23 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 10401--10600
+Node 102 :
+Analyzing candidate keyframes: 1/82/83/84/85/86/87/88/8
+Keyframes = [1 2 3 4 5 6 7 8]
+Clearing tree cache: 
+Processed 10600/2500000 frames: 4.29 minutes elapsed
+4.29 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 10601--10800
+Node 103 :
+Analyzing candidate keyframes: 1/82/83/84/85/86/87/88/8
+Keyframes = [1 2 3 4 5 6 7 8]
+Node 104 (102 103):
+Analyzing candidate keyframes: Keyframes = [2 3 4 5 6 8 9 13 14]
+Clearing tree cache: ..
+Processed 10800/2500000 frames: 4.36 minutes elapsed
+4.36 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 10801--11000
+Node 105 :
+Analyzing candidate keyframes: 1/42/43/44/4
+Keyframes = [1 2 3 4]
+Clearing tree cache: 
+Processed 11000/2500000 frames: 4.42 minutes elapsed
+4.42 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 11001--11200
+Node 106 :
+Analyzing candidate keyframes: 1/102/103/104/105/106/107/108/109/1010/10
+Keyframes = [1 3 4 5 6 7 8 9 10]
+Node 107 (105 106):
+Analyzing candidate keyframes: Keyframes = [2 3 4 5 6 7 8 11 13]
+Node 108 (104 107):
+Analyzing candidate keyframes: Keyframes = [2 3 5 8 10 12 13 15 18]
+Node 109 (101 108):
+Analyzing candidate keyframes: Keyframes = [1 5 6 7 8 9 11 12 13]
+Clearing tree cache: ......
+Processed 11200/2500000 frames: 4.54 minutes elapsed
+4.54 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 11201--11400
+Node 110 :
+Analyzing candidate keyframes: 1/92/93/94/95/96/97/98/99/9
+Keyframes = [1 2 3 4 5 6 7 8 9]
+Clearing tree cache: 
+Processed 11400/2500000 frames: 4.60 minutes elapsed
+4.60 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 11401--11600
+Node 111 :
+Analyzing candidate keyframes: 1/92/93/94/95/96/97/98/99/9
+Keyframes = [1 2 3 4 5 6 7 8 9]
+Node 112 (110 111):
+Analyzing candidate keyframes: Keyframes = [1 3 4 7 10 11 12 14 18]
+Clearing tree cache: ..
+Processed 11600/2500000 frames: 4.67 minutes elapsed
+4.67 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 11601--11800
+Node 113 :
+Analyzing candidate keyframes: 1/52/53/54/55/5
+Keyframes = [1 2 3 4 5]
+Clearing tree cache: 
+Processed 11800/2500000 frames: 4.73 minutes elapsed
+4.73 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 11801--12000
+Node 114 :
+Analyzing candidate keyframes: 1/92/93/94/95/96/97/98/99/9
+Keyframes = [1 2 3 4 5 6 7 8 9]
+Node 115 (113 114):
+Analyzing candidate keyframes: Keyframes = [1 3 4 7 9 10 12 13 14]
+Node 116 (112 115):
+Analyzing candidate keyframes: Keyframes = [1 3 4 6 9 10 12 15 17]
+Clearing tree cache: ....
+Processed 12000/2500000 frames: 4.81 minutes elapsed
+4.81 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 12001--12200
+Node 117 :
+Analyzing candidate keyframes: 1/102/103/104/105/106/107/108/109/1010/10
+Keyframes = [2 3 4 5 6 7 8 9 10]
+Clearing tree cache: 
+Processed 12200/2500000 frames: 4.87 minutes elapsed
+4.87 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 12201--12400
+Node 118 :
+Analyzing candidate keyframes: 1/122/123/124/125/126/127/128/129/1210/1211/1212/12
+Keyframes = [2 3 5 7 8 9 10 11 12]
+Node 119 (117 118):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 5 6 8 11 17]
+Clearing tree cache: ..
+Processed 12400/2500000 frames: 4.95 minutes elapsed
+4.95 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 12401--12600
+Node 120 :
+Analyzing candidate keyframes: 1/62/63/64/65/66/6
+Keyframes = [1 2 3 4 5 6]
+Clearing tree cache: 
+Processed 12600/2500000 frames: 5.02 minutes elapsed
+5.02 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 12601--12800
+Node 121 :
+Analyzing candidate keyframes: 1/42/43/44/4
+Keyframes = [1 2 3 4]
+Node 122 (120 121):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 5 6 7 8 10]
+Node 123 (119 122):
+Analyzing candidate keyframes: Keyframes = [1 3 5 7 9 10 12 15 16]
+Node 124 (116 123):
+Analyzing candidate keyframes: Keyframes = [3 4 5 6 7 8 9 10 11]
+Node 125 (109 124):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 5 6 7 8 9]
+Node 126 (94 125):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 5 6 7 8 9]
+Node 127 (63 126):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 5 6 7 8 9]
+Clearing tree cache: ............
+Processed 12800/2500000 frames: 5.37 minutes elapsed
+5.37 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 12801--13000
+Node 128 :
+Analyzing candidate keyframes: 1/82/83/84/85/86/87/88/8
+Keyframes = [1 2 3 4 5 6 7 8]
+Clearing tree cache: 
+Processed 13000/2500000 frames: 5.44 minutes elapsed
+5.44 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 13001--13200
+Node 129 :
+Analyzing candidate keyframes: 1/72/73/74/75/76/77/7
+Keyframes = [1 2 3 4 5 6 7]
+Node 130 (128 129):
+Analyzing candidate keyframes: Keyframes = [1 2 4 7 10 11 13 14 15]
+Clearing tree cache: ..
+Processed 13200/2500000 frames: 5.52 minutes elapsed
+5.52 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 13201--13400
+Node 131 :
+Analyzing candidate keyframes: 1/92/93/94/95/96/97/98/99/9
+Keyframes = [1 2 3 4 5 6 7 8 9]
+Clearing tree cache: 
+Processed 13400/2500000 frames: 5.59 minutes elapsed
+5.59 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 13401--13600
+Node 132 :
+Analyzing candidate keyframes: 1/192/193/194/195/196/197/198/199/1910/1911/1912/1913/1914/1915/1916/1917/1918/1919/19
+Keyframes = [1 3 7 9 11 12 14 16 18]
+Node 133 (131 132):
+Analyzing candidate keyframes: Keyframes = [1 7 9 10 11 12 13 15 16]
+Node 134 (130 133):
+Analyzing candidate keyframes: Keyframes = [1 6 7 11 12 13 14 15 16]
+Clearing tree cache: ....
+Processed 13600/2500000 frames: 5.71 minutes elapsed
+5.71 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 13601--13800
+Node 135 :
+Analyzing candidate keyframes: 1/72/73/74/75/76/77/7
+Keyframes = [1 2 3 4 5 6 7]
+Clearing tree cache: 
+Processed 13800/2500000 frames: 5.76 minutes elapsed
+5.76 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 13801--14000
+Node 136 :
+Analyzing candidate keyframes: 1/82/83/84/85/86/87/88/8
+Keyframes = [1 2 3 4 5 6 7 8]
+Node 137 (135 136):
+Analyzing candidate keyframes: Keyframes = [1 2 3 5 7 8 10 14 15]
+Clearing tree cache: ..
+Processed 14000/2500000 frames: 5.84 minutes elapsed
+5.84 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 14001--14200
+Node 138 :
+Analyzing candidate keyframes: 1/52/53/54/55/5
+Keyframes = [1 2 3 4 5]
+Clearing tree cache: 
+Processed 14200/2500000 frames: 5.91 minutes elapsed
+5.91 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 14201--14400
+Node 139 :
+Analyzing candidate keyframes: 1/102/103/104/105/106/107/108/109/1010/10
+Keyframes = [2 3 4 5 6 7 8 9 10]
+Node 140 (138 139):
+Analyzing candidate keyframes: Keyframes = [1 3 4 6 7 9 10 11 13]
+Node 141 (137 140):
+Analyzing candidate keyframes: Keyframes = [2 3 4 7 9 10 13 16 18]
+Node 142 (134 141):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 5 6 7 8 9]
+Clearing tree cache: ......
+Processed 14400/2500000 frames: 6.02 minutes elapsed
+6.02 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 14401--14600
+Node 143 :
+Analyzing candidate keyframes: 1/82/83/84/85/86/87/88/8
+Keyframes = [1 2 3 4 5 6 7 8]
+Clearing tree cache: 
+Processed 14600/2500000 frames: 6.08 minutes elapsed
+6.08 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 14601--14800
+Node 144 :
+Analyzing candidate keyframes: 1/122/123/124/125/126/127/128/129/1210/1211/1212/12
+Keyframes = [1 2 3 4 5 6 7 9 12]
+Node 145 (143 144):
+Analyzing candidate keyframes: Keyframes = [2 3 4 5 6 10 12 14 15]
+Clearing tree cache: ..
+Processed 14800/2500000 frames: 6.17 minutes elapsed
+6.17 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 14801--15000
+Node 146 :
+Analyzing candidate keyframes: 1/42/43/44/4
+Keyframes = [1 2 3 4]
+Clearing tree cache: 
+Processed 15000/2500000 frames: 6.23 minutes elapsed
+6.23 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 15001--15200
+Node 147 :
+Analyzing candidate keyframes: 1/42/43/44/4
+Keyframes = [1 2 3 4]
+Node 148 (146 147):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 5 6 7 8]
+Node 149 (145 148):
+Analyzing candidate keyframes: Keyframes = [2 4 5 6 7 8 9 11 16]
+Clearing tree cache: ....
+Processed 15200/2500000 frames: 6.31 minutes elapsed
+6.31 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 15201--15400
+Node 150 :
+Analyzing candidate keyframes: 1/82/83/84/85/86/87/88/8
+Keyframes = [1 2 3 4 5 6 7 8]
+Clearing tree cache: 
+Processed 15400/2500000 frames: 6.37 minutes elapsed
+6.37 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 15401--15600
+Node 151 :
+Analyzing candidate keyframes: 1/72/73/74/75/76/77/7
+Keyframes = [1 2 3 4 5 6 7]
+Node 152 (150 151):
+Analyzing candidate keyframes: Keyframes = [1 2 4 6 7 8 9 10 11]
+Clearing tree cache: ..
+Processed 15600/2500000 frames: 6.45 minutes elapsed
+6.45 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 15601--15800
+Node 153 :
+Analyzing candidate keyframes: 1/52/53/54/55/5
+Keyframes = [1 2 3 4 5]
+Clearing tree cache: 
+Processed 15800/2500000 frames: 6.50 minutes elapsed
+6.50 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 15801--16000
+Node 154 :
+Analyzing candidate keyframes: 1/32/33/3
+Keyframes = [1 2 3]
+Node 155 (153 154):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 5 6 7 8]
+Node 156 (152 155):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 5 6 7 8 13]
+Node 157 (149 156):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 6 9 11 14 17]
+Node 158 (142 157):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 5 6 7 8 9]
+Clearing tree cache: ........
+Processed 16000/2500000 frames: 6.64 minutes elapsed
+6.64 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 16001--16200
+Node 159 :
+Analyzing candidate keyframes: 1/62/63/64/65/66/6
+Keyframes = [1 2 3 4 5 6]
+Clearing tree cache: 
+Processed 16200/2500000 frames: 6.71 minutes elapsed
+6.71 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 16201--16400
+Node 160 :
+Analyzing candidate keyframes: 1/92/93/94/95/96/97/98/99/9
+Keyframes = [1 2 3 4 5 6 7 8 9]
+Node 161 (159 160):
+Analyzing candidate keyframes: Keyframes = [1 3 5 8 9 11 12 13 14]
+Clearing tree cache: ..
+Processed 16400/2500000 frames: 6.80 minutes elapsed
+6.80 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 16401--16600
+Node 162 :
+Analyzing candidate keyframes: 1/72/73/74/75/76/77/7
+Keyframes = [1 2 3 4 5 6 7]
+Clearing tree cache: 
+Processed 16600/2500000 frames: 6.88 minutes elapsed
+6.88 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 16601--16800
+Node 163 :
+Analyzing candidate keyframes: 1/102/103/104/105/106/107/108/109/1010/10
+Keyframes = [2 3 4 5 6 7 8 9 10]
+Node 164 (162 163):
+Analyzing candidate keyframes: Keyframes = [1 3 5 8 9 12 13 15 16]
+Node 165 (161 164):
+Analyzing candidate keyframes: Keyframes = [2 5 6 8 9 11 13 14 15]
+Clearing tree cache: ....
+Processed 16800/2500000 frames: 6.98 minutes elapsed
+6.98 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 16801--17000
+Node 166 :
+Analyzing candidate keyframes: 1/112/113/114/115/116/117/118/119/1110/1111/11
+Keyframes = [1 2 4 6 7 8 9 10 11]
+Clearing tree cache: 
+Processed 17000/2500000 frames: 7.05 minutes elapsed
+7.05 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 17001--17200
+Node 167 :
+Analyzing candidate keyframes: 1/102/103/104/105/106/107/108/109/1010/10
+Keyframes = [1 2 3 5 6 7 8 9 10]
+Node 168 (166 167):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 5 7 8 11 13]
+Clearing tree cache: ..
+Processed 17200/2500000 frames: 7.14 minutes elapsed
+7.14 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 17201--17400
+Node 169 :
+Analyzing candidate keyframes: 1/82/83/84/85/86/87/88/8
+Keyframes = [1 2 3 4 5 6 7 8]
+Clearing tree cache: 
+Processed 17400/2500000 frames: 7.21 minutes elapsed
+7.21 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 17401--17600
+Node 170 :
+Analyzing candidate keyframes: 1/132/133/134/135/136/137/138/139/1310/1311/1312/1313/13
+Keyframes = [1 3 5 6 7 8 9 11 12]
+Node 171 (169 170):
+Analyzing candidate keyframes: Keyframes = [3 4 7 11 13 14 15 16 17]
+Node 172 (168 171):
+Analyzing candidate keyframes: Keyframes = [1 5 6 7 8 9 13 15 17]
+Node 173 (165 172):
+Analyzing candidate keyframes: Keyframes = [1 3 5 7 11 13 15 16 17]
+Clearing tree cache: ......
+Processed 17600/2500000 frames: 7.33 minutes elapsed
+7.33 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 17601--17800
+Node 174 :
+Analyzing candidate keyframes: 1/152/153/154/155/156/157/158/159/1510/1511/1512/1513/1514/1515/15
+Keyframes = [2 5 6 7 8 11 12 13 14]
+Clearing tree cache: 
+Processed 17800/2500000 frames: 7.41 minutes elapsed
+7.41 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 17801--18000
+Node 175 :
+Analyzing candidate keyframes: 1/112/113/114/115/116/117/118/119/1110/1111/11
+Keyframes = [2 4 5 6 7 8 9 10 11]
+Node 176 (174 175):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 6 8 9 14 16]
+Clearing tree cache: ..
+Processed 18000/2500000 frames: 7.50 minutes elapsed
+7.50 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 18001--18200
+Node 177 :
+Analyzing candidate keyframes: 1/92/93/94/95/96/97/98/99/9
+Keyframes = [1 2 3 4 5 6 7 8 9]
+Clearing tree cache: 
+Processed 18200/2500000 frames: 7.57 minutes elapsed
+7.57 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 18201--18400
+Node 178 :
+Analyzing candidate keyframes: 1/112/113/114/115/116/117/118/119/1110/1111/11
+Keyframes = [1 3 4 5 6 7 8 10 11]
+Node 179 (177 178):
+Analyzing candidate keyframes: Keyframes = [1 4 6 7 11 12 13 17 18]
+Node 180 (176 179):
+Analyzing candidate keyframes: Keyframes = [1 3 4 5 6 12 14 16 18]
+Clearing tree cache: ....
+Processed 18400/2500000 frames: 7.68 minutes elapsed
+7.68 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 18401--18600
+Node 181 :
+Analyzing candidate keyframes: 1/92/93/94/95/96/97/98/99/9
+Keyframes = [1 2 3 4 5 6 7 8 9]
+Clearing tree cache: 
+Processed 18600/2500000 frames: 7.74 minutes elapsed
+7.74 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 18601--18800
+Node 182 :
+Analyzing candidate keyframes: 1/102/103/104/105/106/107/108/109/1010/10
+Keyframes = [1 2 4 5 6 7 8 9 10]
+Node 183 (181 182):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 6 7 13 16 18]
+Clearing tree cache: ..
+Processed 18800/2500000 frames: 7.81 minutes elapsed
+7.81 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 18801--19000
+Node 184 :
+Analyzing candidate keyframes: 1/102/103/104/105/106/107/108/109/1010/10
+Keyframes = [1 2 3 4 5 6 7 9 10]
+Clearing tree cache: 
+Processed 19000/2500000 frames: 7.88 minutes elapsed
+7.88 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 19001--19200
+Node 185 :
+Analyzing candidate keyframes: 1/52/53/54/55/5
+Keyframes = [1 2 3 4 5]
+Node 186 (184 185):
+Analyzing candidate keyframes: Keyframes = [1 3 4 5 6 7 9 10 14]
+Node 187 (183 186):
+Analyzing candidate keyframes: Keyframes = [1 3 6 8 9 10 12 16 17]
+Node 188 (180 187):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 5 6 7 8 9]
+Node 189 (173 188):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 5 6 7 8 12]
+Node 190 (158 189):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 5 6 7 8 18]
+Clearing tree cache: ..........
+Processed 19200/2500000 frames: 8.10 minutes elapsed
+8.10 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 19201--19400
+Node 191 :
+Analyzing candidate keyframes: 1/62/63/64/65/66/6
+Keyframes = [1 2 3 4 5 6]
+Clearing tree cache: 
+Processed 19400/2500000 frames: 8.16 minutes elapsed
+8.16 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 19401--19600
+Node 192 :
+Analyzing candidate keyframes: 1/102/103/104/105/106/107/108/109/1010/10
+Keyframes = [1 2 3 4 6 7 8 9 10]
+Node 193 (191 192):
+Analyzing candidate keyframes: Keyframes = [1 2 4 5 8 10 12 14 15]
+Clearing tree cache: ..
+Processed 19600/2500000 frames: 8.24 minutes elapsed
+8.24 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 19601--19800
+Node 194 :
+Analyzing candidate keyframes: 1/82/83/84/85/86/87/88/8
+Keyframes = [1 2 3 4 5 6 7 8]
+Clearing tree cache: 
+Processed 19800/2500000 frames: 8.30 minutes elapsed
+8.30 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 19801--20000
+Node 195 :
+Analyzing candidate keyframes: 1/62/63/64/65/66/6
+Keyframes = [1 2 3 4 5 6]
+Node 196 (194 195):
+Analyzing candidate keyframes: Keyframes = [1 3 4 5 7 8 9 13 14]
+Node 197 (193 196):
+Analyzing candidate keyframes: Keyframes = [1 4 6 7 9 10 11 14 18]
+Clearing tree cache: ....
+Processed 20000/2500000 frames: 8.38 minutes elapsed
+8.38 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 20001--20200
+Node 198 :
+Analyzing candidate keyframes: 1/102/103/104/105/106/107/108/109/1010/10
+Keyframes = [1 2 3 4 5 6 8 9 10]
+Clearing tree cache: 
+Processed 20200/2500000 frames: 8.45 minutes elapsed
+8.45 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 20201--20400
+Node 199 :
+Analyzing candidate keyframes: 1/132/133/134/135/136/137/138/139/1310/1311/1312/1313/13
+Keyframes = [3 6 7 8 9 10 11 12 13]
+Node 200 (198 199):
+Analyzing candidate keyframes: Keyframes = [1 2 3 5 8 11 12 15 17]
+Clearing tree cache: ..
+Processed 20400/2500000 frames: 8.54 minutes elapsed
+8.54 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 20401--20600
+Node 201 :
+Analyzing candidate keyframes: 1/102/103/104/105/106/107/108/109/1010/10
+Keyframes = [1 2 3 5 6 7 8 9 10]
+Clearing tree cache: 
+Processed 20600/2500000 frames: 8.61 minutes elapsed
+8.61 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 20601--20800
+Node 202 :
+Analyzing candidate keyframes: 1/22/2
+Keyframes = [1 2]
+Node 203 (201 202):
+Analyzing candidate keyframes: Keyframes = [1 2 3 6 7 8 9 10 11]
+Node 204 (200 203):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 5 6 7 8 15]
+Node 205 (197 204):
+Analyzing candidate keyframes: Keyframes = [2 4 5 6 7 8 9 10 12]
+Clearing tree cache: ......
+Processed 20800/2500000 frames: 8.76 minutes elapsed
+8.76 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 20801--21000
+Node 206 :
+Analyzing candidate keyframes: 1/92/93/94/95/96/97/98/99/9
+Keyframes = [1 2 3 4 5 6 7 8 9]
+Clearing tree cache: 
+Processed 21000/2500000 frames: 8.83 minutes elapsed
+8.83 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 21001--21200
+Node 207 :
+Analyzing candidate keyframes: 1/62/63/64/65/66/6
+Keyframes = [1 2 3 4 5 6]
+Node 208 (206 207):
+Analyzing candidate keyframes: Keyframes = [3 5 6 7 8 9 10 11 14]
+Clearing tree cache: ..
+Processed 21200/2500000 frames: 8.91 minutes elapsed
+8.91 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 21201--21400
+Node 209 :
+Analyzing candidate keyframes: 1/92/93/94/95/96/97/98/99/9
+Keyframes = [1 2 3 4 5 6 7 8 9]
+Clearing tree cache: 
+Processed 21400/2500000 frames: 8.98 minutes elapsed
+8.98 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 21401--21600
+Node 210 :
+Analyzing candidate keyframes: 1/82/83/84/85/86/87/88/8
+Keyframes = [1 2 3 4 5 6 7 8]
+Node 211 (209 210):
+Analyzing candidate keyframes: Keyframes = [2 3 4 5 9 10 12 15 17]
+Node 212 (208 211):
+Analyzing candidate keyframes: Keyframes = [1 4 5 9 12 14 15 16 18]
+Clearing tree cache: ....
+Processed 21600/2500000 frames: 9.07 minutes elapsed
+9.07 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 21601--21800
+Node 213 :
+Analyzing candidate keyframes: 1/102/103/104/105/106/107/108/109/1010/10
+Keyframes = [1 2 3 4 6 7 8 9 10]
+Clearing tree cache: 
+Processed 21800/2500000 frames: 9.14 minutes elapsed
+9.14 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 21801--22000
+Node 214 :
+Analyzing candidate keyframes: 1/92/93/94/95/96/97/98/99/9
+Keyframes = [1 2 3 4 5 6 7 8 9]
+Node 215 (213 214):
+Analyzing candidate keyframes: Keyframes = [1 2 3 5 6 11 12 15 17]
+Clearing tree cache: ..
+Processed 22000/2500000 frames: 9.22 minutes elapsed
+9.22 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 22001--22200
+Node 216 :
+Analyzing candidate keyframes: 1/102/103/104/105/106/107/108/109/1010/10
+Keyframes = [1 2 4 5 6 7 8 9 10]
+Clearing tree cache: 
+Processed 22200/2500000 frames: 9.30 minutes elapsed
+9.30 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 22201--22400
+Node 217 :
+Analyzing candidate keyframes: 1/42/43/44/4
+Keyframes = [1 2 3 4]
+Node 218 (216 217):
+Analyzing candidate keyframes: Keyframes = [2 3 4 5 6 8 9 11 13]
+Node 219 (215 218):
+Analyzing candidate keyframes: Keyframes = [1 3 4 7 8 9 10 14 16]
+Node 220 (212 219):
+Analyzing candidate keyframes: Keyframes = [3 4 5 6 7 8 9 10 11]
+Node 221 (205 220):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 5 6 7 8 9]
+Clearing tree cache: ........
+Processed 22400/2500000 frames: 9.47 minutes elapsed
+9.47 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 22401--22600
+Node 222 :
+Analyzing candidate keyframes: 1/102/103/104/105/106/107/108/109/1010/10
+Keyframes = [1 2 4 5 6 7 8 9 10]
+Clearing tree cache: 
+Processed 22600/2500000 frames: 9.54 minutes elapsed
+9.54 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 22601--22800
+Node 223 :
+Analyzing candidate keyframes: 1/72/73/74/75/76/77/7
+Keyframes = [1 2 3 4 5 6 7]
+Node 224 (222 223):
+Analyzing candidate keyframes: Keyframes = [1 2 4 5 7 8 11 15 16]
+Clearing tree cache: ..
+Processed 22800/2500000 frames: 9.62 minutes elapsed
+9.62 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 22801--23000
+Node 225 :
+Analyzing candidate keyframes: 1/52/53/54/55/5
+Keyframes = [1 2 3 4 5]
+Clearing tree cache: 
+Processed 23000/2500000 frames: 9.69 minutes elapsed
+9.69 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 23001--23200
+Node 226 :
+Analyzing candidate keyframes: 1/132/133/134/135/136/137/138/139/1310/1311/1312/1313/13
+Keyframes = [2 3 4 6 7 8 11 12 13]
+Node 227 (225 226):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 6 7 8 9 11]
+Node 228 (224 227):
+Analyzing candidate keyframes: Keyframes = [1 2 3 6 7 9 10 13 14]
+Clearing tree cache: ....
+Processed 23200/2500000 frames: 9.78 minutes elapsed
+9.78 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 23201--23400
+Node 229 :
+Analyzing candidate keyframes: 1/132/133/134/135/136/137/138/139/1310/1311/1312/1313/13
+Keyframes = [2 4 6 7 9 10 11 12 13]
+Clearing tree cache: 
+Processed 23400/2500000 frames: 9.85 minutes elapsed
+9.85 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 23401--23600
+Node 230 :
+Analyzing candidate keyframes: 1/102/103/104/105/106/107/108/109/1010/10
+Keyframes = [1 3 4 5 6 7 8 9 10]
+Node 231 (229 230):
+Analyzing candidate keyframes: Keyframes = [1 2 3 5 8 9 13 15 17]
+Clearing tree cache: ..
+Processed 23600/2500000 frames: 9.93 minutes elapsed
+9.93 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 23601--23800
+Node 232 :
+Analyzing candidate keyframes: 1/72/73/74/75/76/77/7
+Keyframes = [1 2 3 4 5 6 7]
+Clearing tree cache: 
+Processed 23800/2500000 frames: 9.99 minutes elapsed
+9.99 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 23801--24000
+Node 233 :
+Analyzing candidate keyframes: 1/102/103/104/105/106/107/108/109/1010/10
+Keyframes = [1 3 4 5 6 7 8 9 10]
+Node 234 (232 233):
+Analyzing candidate keyframes: Keyframes = [1 2 4 5 7 8 9 11 14]
+Node 235 (231 234):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 5 7 8 9 13]
+Node 236 (228 235):
+Analyzing candidate keyframes: Keyframes = [2 4 5 6 7 8 9 12 14]
+Clearing tree cache: ......
+Processed 24000/2500000 frames: 10.12 minutes elapsed
+10.12 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 24001--24200
+Node 237 :
+Analyzing candidate keyframes: 1/112/113/114/115/116/117/118/119/1110/1111/11
+Keyframes = [2 3 5 6 7 8 9 10 11]
+Clearing tree cache: 
+Processed 24200/2500000 frames: 10.19 minutes elapsed
+10.19 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 24201--24400
+Node 238 :
+Analyzing candidate keyframes: 1/72/73/74/75/76/77/7
+Keyframes = [1 2 3 4 5 6 7]
+Node 239 (237 238):
+Analyzing candidate keyframes: Keyframes = [1 2 3 5 6 8 12 13 15]
+Clearing tree cache: ..
+Processed 24400/2500000 frames: 10.27 minutes elapsed
+10.27 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 24401--24600
+Node 240 :
+Analyzing candidate keyframes: 1/92/93/94/95/96/97/98/99/9
+Keyframes = [1 2 3 4 5 6 7 8 9]
+Clearing tree cache: 
+Processed 24600/2500000 frames: 10.33 minutes elapsed
+10.33 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 24601--24800
+Node 241 :
+Analyzing candidate keyframes: 1/102/103/104/105/106/107/108/109/1010/10
+Keyframes = [2 3 4 5 6 7 8 9 10]
+Node 242 (240 241):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 6 12 14 16 18]
+Node 243 (239 242):
+Analyzing candidate keyframes: Keyframes = [1 4 6 8 9 11 13 16 18]
+Clearing tree cache: ....
+Processed 24800/2500000 frames: 10.44 minutes elapsed
+10.44 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 24801--25000
+Node 244 :
+Analyzing candidate keyframes: 1/142/143/144/145/146/147/148/149/1410/1411/1412/1413/1414/14
+Keyframes = [1 3 6 7 9 10 11 12 14]
+Clearing tree cache: 
+Processed 25000/2500000 frames: 10.51 minutes elapsed
+10.51 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 25001--25200
+Node 245 :
+Analyzing candidate keyframes: 1/82/83/84/85/86/87/88/8
+Keyframes = [1 2 3 4 5 6 7 8]
+Node 246 (244 245):
+Analyzing candidate keyframes: Keyframes = [1 2 4 5 6 8 9 10 11]
+Clearing tree cache: ..
+Processed 25200/2500000 frames: 10.58 minutes elapsed
+10.58 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 25201--25400
+Node 247 :
+Analyzing candidate keyframes: 1/82/83/84/85/86/87/88/8
+Keyframes = [1 2 3 4 5 6 7 8]
+Clearing tree cache: 
+Processed 25400/2500000 frames: 10.65 minutes elapsed
+10.65 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 25401--25600
+Node 248 :
+Analyzing candidate keyframes: 1/82/83/84/85/86/87/88/8
+Keyframes = [1 2 3 4 5 6 7 8]
+Node 249 (247 248):
+Analyzing candidate keyframes: Keyframes = [1 3 4 6 7 12 13 14 16]
+Node 250 (246 249):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 5 9 12 14 16]
+Node 251 (243 250):
+Analyzing candidate keyframes: Keyframes = [1 2 3 6 7 8 9 11 12]
+Node 252 (236 251):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 5 6 7 8 9]
+Node 253 (221 252):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 5 6 7 8 9]
+Node 254 (190 253):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 5 6 7 8 9]
+Node 255 (127 254):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 5 6 7 8 10]
+Clearing tree cache: ..............
+Processed 25600/2500000 frames: 11.30 minutes elapsed
+11.30 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 25601--25800
+Node 256 :
+Analyzing candidate keyframes: 1/32/33/3
+Keyframes = [1 2 3]
+Clearing tree cache: 
+Processed 25800/2500000 frames: 11.36 minutes elapsed
+11.36 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 25801--26000
+Node 257 :
+Analyzing candidate keyframes: 1/122/123/124/125/126/127/128/129/1210/1211/1212/12
+Keyframes = [1 3 5 6 7 8 9 10 11]
+Node 258 (256 257):
+Analyzing candidate keyframes: Keyframes = [1 2 3 4 5 6 8 10 12]
+Clearing tree cache: ..
+Processed 26000/2500000 frames: 11.44 minutes elapsed
+11.44 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 26001--26200
+Node 259 :
+Analyzing candidate keyframes: 1/102/103/104/105/106/107/108/109/1010/10
+Keyframes = [2 3 4 5 6 7 8 9 10]
+Clearing tree cache: 
+Processed 26200/2500000 frames: 11.50 minutes elapsed
+11.50 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 26201--26400
+Node 260 :
+Analyzing candidate keyframes: 1/92/93/94/95/96/97/98/99/9
+Keyframes = [1 2 3 4 5 6 7 8 9]
+Node 261 (259 260):
+Analyzing candidate keyframes: Keyframes = [2 4 6 7 9 10 13 15 18]
+Node 262 (258 261):
+Analyzing candidate keyframes: Keyframes = [1 3 4 7 9 10 15 16 17]
+Clearing tree cache: ....
+Processed 26400/2500000 frames: 11.60 minutes elapsed
+11.60 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 26401--26600
+Node 263 :
+Analyzing candidate keyframes: 1/152/153/154/155/156/157/158/159/1510/1511/1512/1513/1514/1515/15
+Keyframes = [1 2 3 4 5 6 7 14 15]
+Clearing tree cache: 
+Processed 26600/2500000 frames: 11.67 minutes elapsed
+11.67 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 26601--26800
+Node 264 :
+Analyzing candidate keyframes: 1/92/93/94/95/96/97/98/99/9
+Keyframes = [1 2 3 4 5 6 7 8 9]
+Node 265 (263 264):
+Analyzing candidate keyframes: Keyframes = [1 2 3 9 10 12 13 16 18]
+Clearing tree cache: ..
+Processed 26800/2500000 frames: 11.76 minutes elapsed
+11.76 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 26801--27000
+Node 266 :
+Analyzing candidate keyframes: 1/142/143/144/145/146/147/148/149/1410/1411/1412/1413/1414/14
+Keyframes = [1 2 4 5 6 8 10 12 14]
+Clearing tree cache: 
+Processed 27000/2500000 frames: 11.84 minutes elapsed
+11.84 minutes elapsed
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Adding leaf: frames 27001--27200

@@ -1,0 +1,143 @@
+.container {
+	/*margin-top: 20px;*/
+	/*text-align: center;*/
+}
+
+.top_bar{
+	padding-left: 50px;
+}
+
+
+#upload_form{
+
+	margin-top: 20px;
+}
+
+#search_form{
+
+	margin-top: 50px;
+}
+
+
+
+#upload_status{
+	margin-left: 50px;
+}
+
+.content_container{
+	padding-left: 20px;
+	background-color: rgb(247, 247, 247);
+	border: 1px solid rgb(218, 211, 211);
+	border-radius: 5px;
+	box-shadow: 2px 2px 2px #888888;
+}
+
+.centered_content{
+	text-align: center;
+}
+
+.thumbnail_cover{
+	display: inline-block;
+	margin: 5px;
+	margin-top: 15px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+}
+
+.idiary_thumbnail{
+	max-width: 100%;
+	height: auto;
+	padding: 4px;
+	line-height: 1.42857143;
+	background-color: #fff;
+}
+
+#conf_visual{
+	margin:30px 0px 30px 0px;
+}
+
+#conf_visual_div{
+	display:inline-block;
+	height:20px;
+	width:80px;
+}
+
+.conf_visual_in{
+	display:inline-block;
+	height:inherit;
+	/*width:25px;*/
+}
+
+.search_form_component{
+	margin:10px;
+}
+
+.coreset_container{
+	width: auto;
+    min-width: 100px; 
+    overflow-x:scroll;   
+    overflow-y:hidden;
+    white-space: nowrap;
+    min-height: 100%;
+}
+
+.coreset_node{
+	display: inline-block;
+	margin:5px;
+	width:300px;
+	height:300px;
+	clear:both;
+	/*border-right: 4px solid black;*/
+	/*border-radius:5px;*/
+	box-shadow:inset 2px 4px 8px 0 hsla(0,0%,0%,.2);
+	/*margin: 2px;*/
+}
+
+.coreset_node>div{
+	width:100px;
+	height:100px;
+	float:left;
+	line-height:100px;
+	text-align:center; 
+}
+
+.coreset_node>div>img{
+	display:inline-block;
+	vertical-align:middle;
+	width:90%;
+	max-width:95%;
+	max-height:95%;
+}
+
+.coreset_thumbnail{
+	width:304px;
+	display:inline-block;
+	margin-right:5px;
+	border: 2px solid gray;
+}
+
+.coreset_description{
+	white-space:normal;
+	width:300px;
+}
+
+.inline_img{
+	display:inline-block;
+}
+
+.segment_div{
+	display: inline-block;
+	padding: 2px;
+	border-right: 3px dotted gray;
+}
+
+.segment_div>.inline_img>img{
+	height:150px;
+	width:150px;
+}
+
+#coreset_result_control{
+	position: fixed;
+	top: 20px;
+	left: 20px;
+}

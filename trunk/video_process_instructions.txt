@@ -1,0 +1,108 @@
+Instructions by: Pramod Kandel (pramod@mit.edu)
+Date (latest update): 05/12/2015
+
+These instructions are valid after you pull the Video Analysis code from svn, and you want to run the video processing pipeline that creates coreset tree data structure. The instructions are based on the installation of the pipeline in Ubuntu 14.04 machine, specifically the drlleopard4 machine in the drl lab. These are not the full-proof steps but are general guidelines, so make sure you debug your way through.
+
+Before being able to compile and run the video processing pipeline, you need to have the following (Versions used in the drlleopard4 machine are included):
+1. OpenCV 2.4.10 (recommended to install in user space, not in the default shared root directory. Make sure to use the flag -CMAKE_INSTALL_PREFIX when compiling OpenCV.
+2. Matlab 2015a
+3. Mex library files
+4. If you also want to run detections part of the pipeline, you need to have Caffe, RCNN, and LSDA installed. The instructions are online. You can type "{Caffe, RCNN, LSDA} object detection" in any search engine to know more about them and how to install them and their prerequisites.
+
+
+Assuming above are successfully installed and working, following are the steps required to be able to run the video process pipeline.
+
+First, steps for installing the RTVideoProcessing library:
+1. Go to video_analysis/trunk/rtvproc directory.
+2. Make a directory called "build" and cd into it. In linux, type "mkdir build && cd build" in command line (without quotation marks)
+
+3. Now use cmake to build. We need at least two flags to set with cmake: OpenCV_DIR (where there are cmake files for OpenCV modules, usually inside <opencv_install_dir>/share/OpenCV)and CMAKE_INSTALL_PREFIX (where you would like to install RTVideoProcessing library. It is recommended that this path be in the user's local space, not in root). 
+You can use cmake-gui to set these flags as well. 
+An example cmake command on linux command line (without quotations) is: 
+"cmake -DOpenCV_DIR=<OpenCV_install_dir>/share/OpenCV/ -D CMAKE_INSTALL_PREFIX= <home>/rtvproc_install/ .."
+
+4. Type on the command line: "make -j4"
+5. Type on the command line: "make install"
+
+This makes sure RTVideoProcessing library is in the CMAKE_INSTALL_PREFIX, and is ready to be used for the video process pipeline.
+
+Now that we installed the VideoProcessing library, let's move to compiling the mex library. For that, first we need to create a startup file in the "trunk" directory, so that all required folders are in the path while running compile mex and then the video processing pipeline. These are the steps to compile mex and run the video process pipeline.
+
+1. Create a startup file in trunk directory. Look at any startup file as example, but following is the content of "startup_new_server.m"(after this paragraph): Don't need the psql-connector if no detections are run. See what's in LOCAL_DATA folder of the drlleopard4 (basically it is the demo video/s that processing pipeline wants to use).
+
+project_paths = {};
+
+project_paths = cat(1,project_paths,pwd);
+project_paths = cat(1,project_paths,'/home/serverdemo/LOCAL_DATA'); %if any local data needed
+disp('Adding project paths:')
+try
+  for i = 1:length(project_paths)
+    addpath(genpath(project_paths{i}))
+  end
+catch err
+  disp(err)
+end
+
+%add javaclasspath for database connection
+
+disp('Adding javaclasspath for database');
+javaclasspath('/home/serverdemo/psql-connector/postgresql-9.4-1201.jdbc41.jar');
+           
+disp('Done!')
+clear project_paths i
+
+2. From rtvproc or trunk directory, open MATLAB. While opening, it may need to be preloaded with various libraries.
+
+An example on the drlleopard4 server of the sh file used to open MATLAB is the following(in next paragraph). Look at these libraries and modify to fit your paths. You can directly run the following in command line, or create a .sh file with this command and run that file instead. (See "matlab_new_server.sh" in rtvproc directory for example).
+
+LD_PRELOAD=/home/serverdemo/rtvproc_install/lib/libRTVideoProcessing.so:/home/serverdemo/OpenCV/opencv-2.4.10_install/lib/libopencv_nonfree.so:/home/serverdemo/OpenCV/opencv-2.4.10_install/lib/libopencv_core.so:/home/serverdemo/OpenCV/opencv-2.4.10_install/lib/libopencv_gpu.so:/home/serverdemo/OpenCV/opencv-2.4.10_install/lib/libopencv_highgui.so:/home/serverdemo/OpenCV/opencv-2.4.10_install/lib/libopencv_video.so:/home/serverdemo/OpenCV/opencv-2.4.10_install/lib/libopencv_contrib.so:/home/serverdemo/OpenCV/opencv-2.4.10_install/lib/libopencv_calib3d.so:/home/serverdemo/OpenCV/opencv-2.4.10_install/lib/libopencv_flann.so matlab
+
+3. In Matlab, run the above startup file in the "trunk" directory, created in step 1 above. This should always be the very first command before the video process pipeline is run (or before MEX is compiled).
+
+4. In rtvproc directory in Matlab, make a "compile_mex_<yourname>.m" file similar to "compile_mex_new_server.m" or "compile_mex_linux.m" or "compile_mex_mac.m" already existing there. compile_mex_new_server works, so please use that as the best example. There, you'll have to manually change the paths for OpenCV and video processing libraries. The example file content is (You can copy-paste the following and modify on top of that, if it is linux based machine):
+
+
+%% compile video processing mex files
+
+mex_files = {'mex_video_processing.cpp'};
+
+% options
+options = '';
+
+% dependencies 
+
+src_paths = '-I/usr/local/include/ ';
+lnk_paths = '-L/usr/local/lib/ ';
+
+% if opencv and RTVideoProcessing.so is installed in the user space
+src_paths= cat(2,'-I/home/serverdemo/OpenCV/opencv-2.4.10_install/include/ ',src_paths);
+lnk_paths = cat(2,lnk_paths, '-L/home/serverdemo/rtvproc_install/lib -L/home/serverdemo/OpenCV/opencv-2.4.10_install/lib ');
+
+% opencv libraries 
+lnk_lib = []; 
+lnk_lib = strcat(lnk_lib,' -lopencv_core');
+lnk_lib = strcat(lnk_lib,' -lopencv_highgui');
+lnk_lib = strcat(lnk_lib,' -lopencv_video');
+lnk_lib = strcat(lnk_lib,' -lopencv_imgproc');
+lnk_lib = strcat(lnk_lib,' -lopencv_features2d');
+lnk_lib = strcat(lnk_lib,' -lopencv_calib3d');
+lnk_lib = strcat(lnk_lib,' -lopencv_flann');
+lnk_lib = strcat(lnk_lib,' -lopencv_contrib');
+lnk_lib = strcat(lnk_lib,' -lopencv_nonfree');
+
+% video processing libraries
+lnk_lib = strcat(lnk_lib,' -lRTVideoProcessing'); 
+
+%% compile 
+for i = 1:length(mex_files)
+    disp(['> Compiling ' mex_files{i}])
+    cmd = sprintf('mex %s %s %s %s %s',options,src_paths,lnk_paths,lnk_lib,mex_files{i});
+    eval(cmd);
+end
+
+myclear
+
+
+5. Run the script "compile_mex_<yourname>.m". You may need to restart matlab. Now, mex library will be ready to use. 
+
+6. We can now run the video pipeline. cd into rtvproc directory, and run "process_video.m"

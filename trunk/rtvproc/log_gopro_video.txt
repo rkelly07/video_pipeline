@@ -1,0 +1,130 @@
+process_video_file_wrapper({'gopro_video.mp4'})
+--------------------------------------------------------------------------------
+
+video_filelist = 
+
+    '/demo/test.mp4'
+
+--------------------------------------------------------------------------------
+
+persistent_data = 
+
+    VQ: [5000x66 single]
+    VW: [5000x1 single]
+
+--------------------------------------------------------------------------------
+
+params = 
+
+                   Source: 'Video'
+                 WebcamNo: 0
+                MaxFrames: 999999
+               StartFrame: 1
+                 EndFrame: 200000
+               SkipFrames: 0
+              RescaleSize: []
+           DescriptorType: 'SURF'
+            SemanticModel: 'RCNN'
+        DisplayBufferSize: 100
+        DisplayNumBestBOW: 50
+          LinearTransform: []
+         MedianFilterSize: 10
+                IIR_Alpha: 0.0500
+               IIR_Length: 1
+        UpdateDescriptors: 1
+          CoresetLeafSize: 100
+         CoresetAlgorithm: [1x1 KSegmentCoresetAlg]
+          CoresetSaveTree: 1
+       ComputeCoresetTree: 1
+            KxMetricEnums: [1x1 struct]
+          KxMetricWeights: [0.4000 0.0500 0.0500]
+    KxBrightnessThreshold: 0.1000
+    KxSimilarityThreshold: 0
+
+--------------------------------------------------------------------------------
+
+options = 
+
+           AuxFilepaths: [1x1 struct]
+              DB_Config: [1x1 struct]
+     SaveDetectionsToDB: 0
+                   Plot: 1
+               FigureID: 100
+          DefaultFigPos: [80 280 1480 800]
+             PlotFrames: 1
+                PlotBOW: 1
+          PlotKeyframes: 1
+               PlotTree: 1
+    PlotKeyframeMetrics: 1
+            SaveResults: 1
+        SaveCoresetTree: 1
+                Verbose: 1
+
+................................................................................
+--------------------------------------------------------------------------------
+
+video_filelist = 
+
+    'demo_project.ogg'
+
+--------------------------------------------------------------------------------
+
+persistent_data = 
+
+    VQ: [10000x66 single]
+    VW: [10000x1 single]
+
+
+params = 
+
+                   Source: 'Video'
+                 WebcamNo: 0
+                MaxFrames: Inf
+               StartFrame: 1
+                 EndFrame: []
+               SkipFrames: 0
+              RescaleSize: []
+           DescriptorType: 'SURF'
+            SemanticModel: 'RCNN'
+        DisplayBufferSize: 100
+        DisplayNumBestBOW: 50
+          LinearTransform: []
+         MedianFilterSize: 10
+                IIR_Alpha: 0.0500
+               IIR_Length: 1
+        UpdateDescriptors: 1
+          CoresetLeafSize: 100
+         CoresetAlgorithm: [1x1 KSegmentCoresetAlg]
+          CoresetSaveTree: 1
+       ComputeCoresetTree: 1
+            KxMetricEnums: [1x1 struct]
+          KxMetricWeights: [0.0500 0.0500 0.0500]
+    KxBrightnessThreshold: 0.1000
+    KxSimilarityThreshold: 0
+
+--------------------------------------------------------------------------------
+
+options = 
+
+                 AuxFilepaths: [1x1 struct]
+                    DB_Config: [1x1 struct]
+           SaveDetectionsToDB: 0
+                         Plot: 0
+                     FigureID: 100
+                DefaultFigPos: [80 280 1480 800]
+                   PlotFrames: 1
+                      PlotBOW: 1
+                PlotKeyframes: 1
+                     PlotTree: 1
+          PlotKeyframeMetrics: 1
+                  SaveResults: 1
+              SaveCoresetTree: 1
+                      Verbose: 1
+    SaveCoresetDetectionsToDB: 1
+
+................................................................................
+
+video_filelist = 
+
+    'gopro_video.mp4'
+

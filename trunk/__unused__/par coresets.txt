@@ -1,0 +1,21 @@
+% root coreset
+feature_coreset_root = Stream;
+feature_coreset_root.leafSize = coreset_params.CoresetLeafSize;
+feature_coreset_root.coresetAlg = coreset_params.CoresetAlgorithm;
+
+% parallel stream
+feature_coreset_par = cell(1,params.NumWorkers);
+% make sliced variables for par stream init
+parfor i = 1:params.NumWorkers
+  feature_coreset_par{i} = Stream;
+  feature_coreset_par{i}.leafSize = coreset_params.CoresetLeafSize;
+  feature_coreset_par{i}.coresetAlg = coreset_params.CoresetAlgorithm;
+end
+
+% spmd stream
+feature_coreset_spmd = Composite(params.NumWorkers);
+spmd
+  feature_coreset_spmd = Stream;
+  feature_coreset_spmd.leafSize = coreset_params.CoresetLeafSize;
+  feature_coreset_spmd.coresetAlg = coreset_params.CoresetAlgorithm;
+end

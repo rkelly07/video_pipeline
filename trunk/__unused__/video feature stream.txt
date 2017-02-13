@@ -1,0 +1,188 @@
+% class wrapper simulating a video stream
+classdef VideoStream < handle
+  
+  properties
+    
+    video_reader;
+    interference_mask;
+    
+    Dimension;
+    BlockSize;
+    
+    block_buffer;
+    
+    StartFrame = 1;
+    CurrFrame = 1;
+    TotalFrames = 0;
+    
+    NumPointsCreated = 0;
+    NumPointsStreamed = 0;
+    
+    % SURF params
+    MetricThreshold;
+    NumOctaves;
+    
+  end % properties
+  
+  methods
+    
+    %% init params
+    function init(this)
+      
+      BORDER_WIDTH = 20;
+      this.interference_mask = false([960,1280]);
+      this.interference_mask((end-70):end,1:400) = true;
+      this.interference_mask(1:BORDER_WIDTH,:) = true;
+      this.interference_mask(end+1-(1:BORDER_WIDTH),:) = true;
+      this.interference_mask(:,1:BORDER_WIDTH) = true;
+      this.interference_mask(:,end+1-(1:BORDER_WIDTH)) = true;
+      
+      this.block_buffer = zeros(0,this.Dimension);
+      
+    end
+    
+    %% constructor
+    function this = VideoStream(filename)
+      
+      % initialize internal params
+      this.init();
+      
+      % init video reader
+      try
+        this.video_reader = VideoReader(filename);
+        this.CurrFrame = this.StartFrame;
+        this.TotalFrames = this.video_reader.NumberOfFrames;
+      catch err
+        disp(err)
+      end
+      
+    end
+    
+    %% generate next feature block size [BlockSize x Dimension]
+    function block = get_next_block(this)
+      
+      % read frames and compute features until
+      % size of block buffer > block size
+      while size(this.block_buffer,1) < this.BlockSize
+        
+        % read the next frame
+        frame = read(this.video_reader,this.CurrFrame);
+        Ihsv = double(rgb2hsv(frame));
+        H = Ihsv(:,:,3);
+        
+        % calculate SURF points
+        points = detectSURFFeatures(H, ...
+          'MetricThreshold',this.MetricThreshold, ...
+          'NumOctaves',this.NumOctaves);
+        [features,points] = extractFeatures(H,points);
+        [features,~] = remove_feature_by_mask(features,points,this.interference_mask);
+        
+        % display current frame
+        disp(['frame ' num2str(this.CurrFrame) ': ' num2str(length(features)) ' features'])
+        %         figure(200)
+        %         image(frame)
+        %         hold on
+        %         px = points.Location(:,1);
+        %         py = points.Location(:,2);
+        %         plot(px,py,'xy','LineWidth',2)
+        
+        % add frame to block buffer
+        this.block_buffer = cat(1,this.block_buffer,features);
+        
+        % update curr frame
+        this.CurrFrame = this.CurrFrame+1;
+        
+      end
+      
+      % return next block
+      block = this.block_buffer(1:this.BlockSize,:);
+      
+      % store the remainder in the block buffer
+      this.block_buffer = this.block_buffer(this.BlockSize+1:end,:);
+      
+      % update data source
+      this.NumPointsStreamed = this.NumPointsStreamed+size(block,1);
+      
+    end
+    
+    %% get next frame in the video
+    function [frame,features] = get_next_frame(this)
+      
+      % read the next frame
+      frame = read(this.video_reader,this.CurrFrame);
+      Ihsv = double(rgb2hsv(frame));
+      H = Ihsv(:,:,3);
+      
+      % calculate SURF points
+      points = detectSURFFeatures(H, ...
+        'MetricThreshold',this.MetricThreshold, ...
+        'NumOctaves',this.NumOctaves);
+      [features,points] = extractFeatures(H,points);
+      [features,~] = remove_feature_by_mask(features,points,this.interference_mask);
+      
+      % display current frame
+      disp(['frame ' num2str(this.CurrFrame) ': ' num2str(length(features)) ' features'])
+      %       figure(200)
+      %       image(frame)
+      %       hold on
+      %       px = points.Location(:,1);
+      %       py = points.Location(:,2);
+      %       plot(px,py,'xy','LineWidth',2)
+      
+      % clear block buffer
+      this.block_buffer = zeros(this.BlockSize,this.Dimension);
+      
+      % update data source
+      this.NumPointsStreamed = this.NumPointsStreamed+size(features,1);
+      this.CurrFrame = this.CurrFrame+1;
+      
+    end
+    
+    %% get next frame in the video
+    function [frame,features] = par_get_next_frame(this,offset)
+      
+      % read the next frame
+      frame = read(this.video_reader,this.CurrFrame+offset-1);
+      Ihsv = double(rgb2hsv(frame));
+      H = Ihsv(:,:,3);
+      
+      % calculate SURF points
+      points = detectSURFFeatures(H, ...
+        'MetricThreshold',this.MetricThreshold, ...
+        'NumOctaves',this.NumOctaves);
+      [features,points] = extractFeatures(H,points);
+      [features,~] = remove_feature_by_mask(features,points,this.interference_mask);
+      
+      % display current frame
+      disp(['frame ' num2str(this.CurrFrame+offset-1) ': ' num2str(length(features)) ' features'])
+      %       figure(200)
+      %       image(frame)
+      %       hold on
+      %       px = points.Location(:,1);
+      %       py = points.Location(:,2);
+      %       plot(px,py,'xy','LineWidth',2)
+      
+    end
+    
+    %% 
+    function update_par_get(this,num_frames,num_features)
+      
+      % update data source
+      this.NumPointsStreamed = this.NumPointsStreamed+num_features;
+      this.CurrFrame = this.CurrFrame+num_frames;
+      
+    end
+    
+    %% get next n frames
+    function [nframes,nfeatures] = get_next_nframes(this,n)
+      nframes = cell(1,n);
+      nfeatures = cell(1,n);
+      for i = 1:n
+        [nframes{i},nfeatures{i}] = this.get_next_frame();
+      end
+    end
+    
+  end % methods
+  
+end % classdef
+

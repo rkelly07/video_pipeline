@@ -1,0 +1,11 @@
+% % end video processing loop
+% disp('Done!')
+% 
+% if options.Plot
+%     figure(options.FigureID), subplot(231)
+%     imshow(I)
+%     title_str = ['source ' num2str(params.SourceNo) ': frame ' num2str(curr_frame)];
+%     %title_str = strcat(titlestr,[', left: ',num2str(mins_rem),':',num2str(secs_rem)]);
+%     title(title_str,'FontSize',16)
+%     drawnow
+% end

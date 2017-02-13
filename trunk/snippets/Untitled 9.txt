@@ -1,0 +1,17 @@
+
+% %         % TODO:
+% %         % update [keyframes, sel_idx, new_Kx_metrics, sel_image_desc]
+% %         
+% %         ct_data{this_node}.num_segments = 0;
+% %         ct_data{this_node}.keyframes = sel_Kx_images;
+% %         ct_data{this_node}.metrics = new_Kx_metrics;
+% %         ct_image_desc{this_node} = sel_image_desc;
+% %         
+% %         desc_coeff = zeros(size(sel_image_desc{1}.desc_coeff,1),size(sel_Kx_images,2));
+% %         for i = 1:size(sel_Kx_images,2)
+% %             desc_coeff(:,i) = sel_image_desc{i}.desc_coeff;
+% %         end
+% %         ct_data{this_node}.desc_coeff = desc_coeff;
+% %         
+% %         ct_data{this_node}.keyframe_sel_idx = Kx_sel_idx;
+% %         ct_data{this_node}.key_idx = children_key_idx(Kx_sel_idx);

@@ -1,0 +1,6 @@
+        % interpolate to find the absolute frame indices
+%         bx = median_frame_idx;
+%         for i = 1:length(bx)
+%             bx(i) = frame_buffer_idx(find(abs(bx(i)-frame_buffer_idx)==min(abs(bx(i)-frame_buffer_idx)),1,'first'));
+%         end
+%         median_frame_idx = bx;

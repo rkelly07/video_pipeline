@@ -1,0 +1,1 @@
+def get_detections(nodes, T12, q_range, q_text):

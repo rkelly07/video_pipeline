@@ -1,0 +1,9 @@
+tracklets = [];
+tracklets.current_frame = 0;
+tracklets.tracklet_cnt = 0;
+
+        % hold on
+        % px = tracklets.current_trackpoints.Location(:,1);
+        % py = tracklets.current_trackpoints.Location(:,2);
+        % plot(px,py,'xy','LineWidth',2)
+        % hold off

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+	<head>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="{%static 'demo/bootstrap/css/bootstrap.min.css'%}">
+
+		<!-- CSS for this template -->
+		<link rel="stylesheet" href="{%static 'demo/style.css'%}">
+
+		<script src="{%static 'demo/jquery.js'%}"></script>
+
+		{% block extra_header_links %}
+
+		{% endblock %}
+		
+
+
+
+		{% block header_javascript %}
+
+		{% endblock %}
+	</head>
+	<body>
+
+
+
+
+			{% block navbar %}
+			<nav class="navbar navbar-default top_bar">
+			  <div class="container-fluid">
+			      <a class="navbar-brand" href="/">
+			        <img alt="Brand" src="{% static 'demo/images/iDiary_logo.png'%}" width = "100px">
+			      </a>
+
+			      <h1 class="navbar-text"> Search for objects in my video </h1>
+			  </div>
+			</nav>
+			{% endblock %}
+		<div class="container">
+
+
+			<div class="content_container">
+				{% block content %}
+				{% endblock %}
+			</div>
+		</div>
+	</body>
+
+</html>

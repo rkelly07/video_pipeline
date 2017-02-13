@@ -1,0 +1,249 @@
+
+{% extends "demo/skeleton.html" %}
+{% load staticfiles %}
+
+
+{% block extra_header_links %}
+<script src="{%static 'demo/bootstrap/js/bootstrap.min.js'%}"></script>
+{% endblock %}
+
+{% block header_javascript %}
+<script type="text/javascript">
+	POLL_INTERVAL = 200 //in milliseconds, for coreset tree retrieval polling
+	$(document).ready(function(){
+		$('[data-toggle="tooltip"]').tooltip(); 
+		
+		$("#stop_button").click(function(){
+			alert("stop button clicked!");
+		});
+
+		$("#search_form").submit(function(){
+			$("#result").html("Loading in another page...")
+		});
+		
+		$( "#prune_type" ).change(function() {
+			var add_to_summary_form = 
+				'<label for="threshold">Threshold:</label>'+
+				'<input type="text" class="form-control" id="threshold" name = "threshold" placeholder="Threshold">';
+
+			$("#prune_threshold_area").html(add_to_summary_form);
+		});
+		
+
+		var interval;
+		
+				
+		
+		$("#search_form").on('submit', function(event){
+			
+			
+			var retrieval_type = $("#retrieval_type").val().trim();
+			if (retrieval_type.toLowerCase() === "coreset" || retrieval_type.toLowerCase() === "uniform")
+			{
+				event.preventDefault();
+				form_data = $("#search_form").serialize();	
+				all_data = form_data + "&" + $.param({ 'new_req': true });
+				//first send with new request
+				send_request_and_update_ui(all_data)
+				//then all other are not new requests
+				all_data = form_data + "&" + $.param({ 'new_req': false });
+				interval = setInterval(send_request_and_update_ui, POLL_INTERVAL, all_data);
+			}
+		});
+		
+		function send_request_and_update_ui(form_data){
+			$.ajax({
+				url: "/fetch_pics/",
+				type : 'GET',
+				data: form_data,
+				async: false,
+					// handle a successful response
+				success : function(data) {
+					console.log("success"); // another sanity check
+					json = {}
+					try {
+						json = jQuery.parseJSON(data);
+					}catch (err){
+						json.done = 2
+					}
+					
+					if (json.done == 1){
+						console.log("All done!");
+						clearInterval(interval);
+					}else{
+						if (json.done == 0){
+							console.log("Still working..");	
+							
+						}else{
+							console.log("Attaching to html");
+							$('html').html(data);
+						}
+						
+					}
+				}
+			});
+		}
+	
+		
+	});
+
+</script>
+{% endblock %}
+
+
+
+{% block content %}
+
+<div id="coreset_result_control"> </div> <!-- This  -->
+
+<div class="content_group">
+	<form role="form" id="search_form" class="form-inline" action="/fetch_pics/" method="get">
+		<legend>Search in existing videos</legend>
+    	<div class="search_form_component form-group">
+        	<label for="search_key">Search Word*:</label>
+        	<input type="text" class="form-control" id="search_key" name = "word" placeholder="Search Key" required>
+        </div>
+	
+	<div class="search_form_component form-group">
+		<label for="search_for">Object or Text:</label>
+		<select class="form-control" id="search_for" name="search_for">
+			<option selected value="object">Objects</option>
+			<option value="text">Text</option>
+		</select>
+	</div>
+
+	    <div class="search_form_component form-group">
+	    	<label for="filename_part">Search in file/part of filename:</label>
+	    	<input type="text" class="form-control" id="filename_part" name = "filename_part" placeholder="e.g. 20150206_150927r.mp4">
+	    </div>
+
+	    <div class="search_form_component form-group">
+	    	<label for="frame_range">Search in frame range:</label>
+	    	<input type="text" class="form-control" id="frame_range" name = "frame_range" placeholder="e.g. 1-400">
+	    </div>
+
+    
+        <div class="search_form_component form-group">
+            <label for="threshold" data-toggle="tooltip" data-placement="bottom" data-original-title="Confidence scores for object detection in Caffe usually range from ~ -1 to ~3. So we can discard the detections with lower confidence scores. Choose a score threshold so that only the detections with confidence above the threshold are shown. Default threshold is 1.0">Confidence threshold:</label>
+            <input type="text" class="form-control" id="threshold" name="threshold" placeholder="default is 1.0">
+        </div>
+
+        <div class="search_form_component form-group" data-toggle="tooltip" data-placement="bottom" data-original-title="After an objected is detected in a frame, choose how many frames to skip in case same object is detected in subsequent frames.">
+        	<label for="frame_gap">Same detection skip frames:</label>
+        	<input type="text" class="form-control" id="frame_gap" name = "frame_gap" placeholder="default is 15">
+        </div>
+	
+	<div class="search_form_component form-group">
+		<label for="retrieval_type">Select retrieval method:</label>
+		<select class="form-control" id="retrieval_type" name="retrieval_type">
+			<option selected disabled hidden value=''></option>
+			<option value="db">Database</option>
+			<option value="coreset">Coreset tree</option>
+			<option value="uniform"> Uniform sampling </option>
+		</select>
+	</div>	
+	
+	<div class="search_form_component form-group">
+		<label for="retrieval_data">Select retrieval data type:</label>
+		<select class="form-control" id="retrieval_data" name="retrieval_data">
+			<option selected value="natural">Natural Data</option>
+			<option value="synthetic">Synthetic Data</option>
+		</select>
+	</div>		
+	
+	<div class="search_form_component form-group" id="retrieval_time_area">
+	
+	</div>	
+	
+        <button type="submit" class="btn btn-primary">Search</button>
+	<div id="search_form_status"> {{search_form_status}} </div>
+	</form> 
+		
+	<br>
+	<div id="instruction"> </div>
+
+	<div id="result"> </div>
+	<hr>
+
+</div>
+
+<div class="content_group">
+	<!-- Upload form. Note enctype attribute! -->
+	<form id= "video_upload_form" action="/upload_video/" method="post" enctype="multipart/form-data">
+		<legend>Upload new video file</legend>
+		{% csrf_token %}
+		<p>{{ form.non_field_errors }}</p>
+		<p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p>
+		<p>
+			{{ form.docfile.errors }}
+			{{ form.docfile }}
+		</p>
+		<input type="submit" class="btn btn-primary" value="Upload" />
+		<div id="video_upload_status"> {{video_upload_status}} </div>
+	</form>
+	<hr>
+    
+	<!-- Upload form. Note enctype attribute! -->
+	<form id = "gps_upload_form" action="/upload_gps_file/" method="post" enctype="multipart/form-data">
+		<legend>Upload new GPS file</legend>
+		{% csrf_token %}
+		<p>{{ form.non_field_errors }}</p>
+		<p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p>
+		<p>
+			{{ form.docfile.errors }}
+			{{ form.docfile }}
+		</p>
+		<p><input type="submit" class="btn btn-primary" value="Upload" /></p>
+		<div id="gps_upload_status"> {{gps_upload_status}} </div>
+	</form>
+                             	
+	<hr>
+</div>
+
+<div class="content_group">
+	<h2> Video Summarization</h2>
+
+	<!-- First video -->
+	<!--
+	<div class="video_window">
+		<video width="400" controls muted>
+			<source src="/static/demo/videos/demo_vids/test1.mp4" type="video/mp4">
+  			Your browser does not support HTML5 video.
+		</video>
+	</div> 
+	-->
+	<!-- form for summarization -->
+	<form role="form" id="summarize_vid_form" class="form-inline" action="/summarize_video/" method="get">
+		<legend>Depth prefered over height if input both.</legend>
+		<div class="search_form_component form-group">
+			<label for="tree_depth">Tree depth (0=root, inf=leaf): </label>
+			<input type="text" class="form-control" id="tree_depth" name = "tree_depth" placeholder="Tree depth">
+		</div>
+		
+		<div class="search_form_component form-group">
+			<label for="tree_height">Tree height(0=leaves):</label>
+			<input type="text" class="form-control" id="tree_height" name = "tree_height" placeholder="Tree height">
+		</div>
+		
+
+		<div class="search_form_component form-group">
+			<label for="prune_type">Select Pruning type:</label>
+			<select class="form-control" id="prune_type" name="prune_type">
+				<option selected disabled hidden value=''></option>
+				<option value="avg_dist">Avg. keyframe distance</option>
+				<option value="min_dist">Min keyframe distance</option>
+				<option value="max_dist">Max keyframe distance</option>
+			</select>
+		</div>
+		<div class="search_form_component form-group" id="prune_threshold_area">
+		
+		</div>
+
+		<button type="submit" class="btn btn-primary">Summarize Video</button>
+	</form>
+
+	<hr>
+
+</div>
+{% endblock %}
+

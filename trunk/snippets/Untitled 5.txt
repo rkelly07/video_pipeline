@@ -1,0 +1,10 @@
+        1
+        
+% %         desc_coeff = zeros(size(sel_image_desc{1}.desc_coeff,1),size(sel_Kx_images,2));
+% %         for i = 1:size(sel_Kx_images,2)
+% %             desc_coeff(:,i) = sel_image_desc{i}.desc_coeff;
+% %         end
+% %         ct_data{this_node}.desc_coeff = desc_coeff;
+% %         
+% %         [~,ct_data{this_node}.keyframe_sel_idx] = ismember(sel_Kx_idx,Kx_candidate_idx);
+% %         ct_data{this_node}.key_idx = sel_Kx_idx;

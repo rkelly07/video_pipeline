@@ -1,0 +1,9 @@
+        % compute votes and tfrac from leaf metrics
+        vote_hist = zeros(1,num_candidate_frames);
+        for i = 1:num_candidate_frames
+            vote_hist(i) = find(abs(Kx_sel_idx-Kx_candidate_idx(i))==min(abs(Kx_sel_idx-Kx_candidate_idx(i))),1,'first');
+        end
+        for i = 1:num_keyframes
+            M(Kx_metric_enum.SEG_VOTES,i) = sum(Kx_seg_votes(vote_hist==i)); % votes
+            M(Kx_metric_enum.SEG_TFRAC,i) = sum(Kx_seg_tfrac(vote_hist==i)); % tfrac
+        end

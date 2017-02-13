@@ -1,0 +1,35 @@
+{% extends "demo/skeleton.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<!--Visualization code -->
+{%if coreset_nodes%}
+	<div class="coreset_container centered_content">
+	{% for coreset_node in coreset_nodes %}
+		<div class="coreset_thumbnail">
+		<div class="coreset_node">
+			{% for keyframe_path in coreset_node.KeyFramePaths%}
+				<div> <img src="{% static keyframe_path%}"> </img> </div>
+			{%endfor%}
+		</div>
+		{% if coreset_node.Description %}
+		<div class="coreset_description">{{ coreset_node.Description }} </div>
+		{%endif%}
+		</div>
+	{% endfor %}
+	</div>
+	
+	<!-- Now the visualization of less keyframes -->
+	<hr>
+	<h1> Fewer keyframes selected </h1>
+	<div class="coreset_container centered_content">
+	{% for coreset_node in coreset_nodes %}
+		<div class=segment_div>
+			{% for keyframe_path in coreset_node.FilteredKeyFramePaths%}
+				<div class="inline_img"> <img src="{% static keyframe_path%}"> </img> </div>
+			{%endfor%}
+		</div>
+	{% endfor %}
+	</div>
+{% endif %}
+{% endblock %}

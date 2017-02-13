@@ -1,0 +1,6 @@
+        % use children keyframe metrics
+        num_metrics = length(params.KxMetricWeights);
+        num_candidate_frames = length(Kx_candidate_idx);
+        Kx_metrics = zeros(num_metrics,num_candidate_frames);
+        Kx_metrics(params.KxMetricEnum.SEG_VOTES,:) = Kx_seg_votes;
+        Kx_metrics(params.KxMetricEnum.SEG_TFRAC,:) = Kx_seg_tfrac;

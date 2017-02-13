@@ -1,0 +1,6 @@
+gui_title_str = {''};
+gui_title_str = cat(1,gui_title_str,'TO BEGIN BROWSING');
+gui_title_str = cat(1,gui_title_str,'LEFT-CLICK ON A NODE OR');
+gui_title_str = cat(1,gui_title_str,'LEFT-CLICK OR RIGHT-CLICK ON THE TIMELINE');
+gui_title_str = cat(1,gui_title_str,'');
+title(gui_title_str,'FontName','Arial','FontSize',14)

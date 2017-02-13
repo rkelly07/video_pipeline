@@ -1,0 +1,16 @@
+    %     % skip frames if needed
+    %     if curr_frame < num_spanned_frames
+    %         for i = 1:params.SkipFrames
+    %
+    %             mex_video_processing('skipframe',h);
+    %             curr_frame = curr_frame+1;
+    %
+    %             % always need to process the last frame
+    %             % to build coreset tree
+    %             if curr_frame == num_spanned_frames
+    %                 break
+    %             end
+    %
+    %         end
+    %     end
+    

@@ -1,0 +1,8 @@
+A = (1+params.SkipFrames)*(1:length(image_buffer))
+K = keyframes_buffer_idx
+abs(K(1)-A)
+find(abs(K(1)-A)==min(abs(K(1)-A)),1,'first')
+for i = 1:length(K)
+K(i) = A(find(abs(K(i)-A)==min(abs(K(i)-A)),1,'first'));
+end
+K

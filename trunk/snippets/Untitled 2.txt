@@ -1,0 +1,5 @@
+    %abs_frame_idx = image_buffer_offset+(1+params.SkipFrames)*(1:length(image_buffer));
+%     abs_frame_idx = zeros(1,length(image_desc_buffer));
+%     for i = 1:length(image_desc_buffer)
+%         abs_frame_idx(i) = image_desc_buffer{i}.frame_idx;
+%     end

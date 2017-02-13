@@ -1,0 +1,75 @@
+addpath('\\division10\Group102\SIGMA\Software\nvmProcessing\quaternions');
+addpath('\\division10\Group102\SIGMA\Software\nvmProcessing');
+
+infilename = '\\Division10\Group102\SIGMA\Data\fenway_smallset\vSfM_output\fenway_smallset.nvm';
+models = read_nvm(filename);
+
+
+% random transformation from world frame to bundler frame
+dth1 = 2*pi*rand();
+dth2 = 2*pi*rand();
+dth3 = 2*pi*rand();
+Rx = [1 0 0; 0 cos(dth1) -sin(dth1); 0 sin(dth1) cos(dth1)];
+Ry = [cos(dth2) 0 -sin(dth1); 0 1 0; sin(dth2) 0 cos(dth2)];
+Rz = [0 0 1; cos(dth3) -sin(dth1) 0; sin(dth3) cos(dth3) 0];
+R = Rx*Ry*Rz;
+t = rand(3,1);
+s = 1;
+
+models = transform_nvm(infilename,R,t,s,invertTransform,writeIt,outfilename)
+
+
+% random transformation from world frame to bundler frame
+dth1 = 2*pi*rand();
+dth2 = 2*pi*rand();
+dth3 = 2*pi*rand();
+Rx = [1 0 0; 0 cos(dth1) -sin(dth1); 0 sin(dth1) cos(dth1)];
+Ry = [cos(dth2) 0 -sin(dth1); 0 1 0; sin(dth2) 0 cos(dth2)];
+Rz = [0 0 1; cos(dth3) -sin(dth1) 0; sin(dth3) cos(dth3) 0];
+R = Rx*Ry*Rz;
+t = rand(3,1);
+
+q = dcm2q(R);
+
+q,models{1}.photos.Q = qmult(q,models{1}.photos.Q);
+models{1}.points.XYZ = [models{1}.points.XYZ,ones(models{1}.numPoints,1)] * [R,t];
+
+
+% [imgPathsSorted,sortingIdxs] = sort(imgPaths);
+% 
+% % sanity check: imgPaths{sortingIdxs} == imgPathsSorted
+% all(strcmp({imgPaths{sortingIdxs}}',imgPathsSorted))
+% 
+% 
+% % the reverse mapping...
+% N = numPhotos;
+% unsortingIdxs = 1:N; unsortingIdxs(sortingIdxs) = 1:N;
+% 
+% % sanity check: imgPaths == imgPathsSorted{unsortingIdxs}
+% all(strcmp(imgPaths,{imgPathsSorted{unsortingIdxs}}'))
+
+
+% From http://www.cs.washington.edu/homes/ccwu/vsfm/doc.html#nvm
+% 
+% VisualSFM saves SfM workspaces into NVM files, which contain input image paths and multiple 3D models. Below is the format description
+% 
+% NVM_V3 [optional calibration]                        # file version header
+% <Model1> <Model2> ...                                # multiple reconstructed models
+% <Empty Model containing the unregistered Images>     # number of camera > 0, but number of points = 0
+% <0>                                                  # 0 camera to indicate the end of model section
+% <Some comments describing the PLY section>
+% <Number of PLY files> <List of indices of models that have associated PLY>
+% 
+% The [optional calibration] exists only if you use "Set Fixed Calibration" Function
+% FixedK fx cx fy cy
+% 
+% Each reconstructed <model> contains the following
+% <Number of cameras>   <List of cameras>
+% <Number of 3D points> <List of points>
+% 
+% The cameras and 3D points are saved in the following format
+% <Camera> = <File name> <focal length> <quaternion rotation> <camera center> <radial distortion> 0
+% <Point>  = <XYZ> <RGB> <number of measurements> <List of Measurements>
+% <Measurement> = <Image index> <Feature Index> <xy>
+% 
+% Check the LoadNVM function in util.h of Multicore bundle adjustment code for more details.  The LoadNVM function reads only the first model, and you should repeat to get all. Since V0.5.7, the white spaces in <file name> are replaced by '\"'. 

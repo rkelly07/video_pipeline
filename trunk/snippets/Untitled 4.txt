@@ -1,0 +1,2 @@
+%         sel_Kx_images = cellfun(@(C)(C.image),selected_frames,'UniformOutput',false);
+%         sel_Kx_desc = cellfun(@(C)(C.desc),selected_frames,'UniformOutput',false);
